@@ -5,7 +5,7 @@ This repository describes some of our processes and standards.
 ## Github issues labels
 
 Name              | Description
-------------------------------------------------------------------------------------------------------------------------------
+------------------|-----------------------------------------------------------------------------------------------------------
 `bug`             | A mistake in our software
 `enhancement`     | Something that we should improve in our software, also includes new features
 `question`        | A request for information from the developer who is responsible for the component
