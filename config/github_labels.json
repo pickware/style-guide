@@ -1,34 +1,34 @@
 [
-  {
-    "name": "bug",
-    "color": "ee0701"
-  },
-  {
-    "name": "enhancement",
-    "color": "84b6eb"
-  },
-  {
-    "name": "question",
-    "color": "0e8a16"
-  },
-  {
-    "name": "support",
-    "color": "5319e7"
-  },
-  {
-    "name": "critical",
-    "color": "b60205"
-  },
-  {
-    "name": "major",
-    "color": "FF6161"
-  },
-  {
-    "name": "minor",
-    "color": "FFB854"
-  },
-  {
-    "name": "trivial",
-    "color": "fef2c0"
-  }
+    {
+        "name": "bug",
+        "color": "ee0701"
+    },
+    {
+        "name": "enhancement",
+        "color": "84b6eb"
+    },
+    {
+        "name": "question",
+        "color": "0e8a16"
+    },
+    {
+        "name": "support",
+        "color": "5319e7"
+    },
+    {
+        "name": "critical",
+        "color": "b60205"
+    },
+    {
+        "name": "major",
+        "color": "FF6161"
+    },
+    {
+        "name": "minor",
+        "color": "FFB854"
+    },
+    {
+        "name": "trivial",
+        "color": "fef2c0"
+    }
 ]
