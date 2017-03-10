@@ -1,0 +1,20 @@
+{
+  "name": "viison-style-guide",
+  "version": "0.0.1",
+  "description": "Style-Guide",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/VIISON/style-guide.git"
+  },
+  "author": "VIISON",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/VIISON/style-guide/issues"
+  },
+  "dependencies": {
+    "eslint": "^3.15.0",
+    "eslint-config-airbnb-base": "^11.1.0",
+    "eslint-plugin-import": "^2.2.0"
+  },
+  "homepage": "https://github.com/VIISON/style-guide#readme"
+}
