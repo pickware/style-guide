@@ -14,3 +14,10 @@ Name              | Description
 `major`           | A bug that prevents important functionality of our software from being used
 `minor`           | A bug that we should fix, but for which a workaround exists or which has little impact on day-to-day use
 `trivial`         | A bug that has next to no impact and is easy to fix (e.g. translation error, small glitches)
+
+## ESLint
+
+Name                            | Description
+--------------------------------|-----------------------------------------
+`javascript/eslintrc.js`        | Describes the ES6 ESLint configuration
+`javascript/legacy/eslintrc.js` | Describes the ES5 ESLint configuration
