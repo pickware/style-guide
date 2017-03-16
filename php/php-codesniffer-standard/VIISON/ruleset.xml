@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<ruleset name="VIISON">
+    <!-- See https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml for more information -->
+    <description>The VIISON PHP coding standard builds on the PSR-2 and Squiz coding standards.</description>
+
+    <!-- Include the whole PSR-2 standard, except for selected sniff messages -->
+    <rule ref="PSR2">
+        <exclude name="PSR2.ControlStructures.SwitchDeclaration.TerminatingComment"/>
+    </rule>
+
+    <!-- Disable some namespacing sniff messages for Bootstrap.php and 'Controllers' files -->
+    <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
+        <exclude-pattern>*/Bootstrap.php</exclude-pattern>
+        <exclude-pattern>*/Controllers/*</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.Classes.ValidClassName.NotCamelCaps">
+        <exclude-pattern>*/Bootstrap.php</exclude-pattern>
+        <exclude-pattern>*/Controllers/*</exclude-pattern>
+    </rule>
+
+    <!-- Disable method name sniff message for test classes -->
+    <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
+        <exclude-pattern>*/Test/*Test.php</exclude-pattern>
+    </rule>
+</ruleset>

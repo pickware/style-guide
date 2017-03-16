@@ -21,3 +21,19 @@ Name                            | Description
 --------------------------------|-----------------------------------------
 `javascript/eslintrc.js`        | Describes the ES6 ESLint configuration
 `javascript/legacy/eslintrc.js` | Describes the ES5 ESLint configuration
+
+## PHP CodeSniffer
+
+To lint PHP Code using _PHP CodeSniffer_, you have to install the following packages:
+
+* php-code-sniffer
+* php-cs-fixer
+* php-md
+
+To install them on OS X using homebrew, run the following:
+
+```
+brew install php-cs-fixer phpmd php-code-sniffer
+```
+
+The ruleset required to lint Shopware plugins is located in `php/php-codesniffer-standard/VIISON` and is mostly based on the `PSR-1` and `PSR-2` coding standards. You must configure your php-cs plugin in your IDE to use that standard by setting the `standard` option to that path.
