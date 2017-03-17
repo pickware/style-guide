@@ -1,3 +1,5 @@
+/* eslint-disable quote-props */
+
 module.exports = {
     'extends': 'airbnb-base/legacy',
     'rules': {
@@ -14,7 +16,7 @@ module.exports = {
         'class-methods-use-this': 0,
         'func-names': 0,
         'newline-before-return': ['error'],
-        'indent': ['error', 4, { "SwitchCase": 1 }],
-        'no-use-before-define': ['error', { "functions": false }],
-    }
+        'indent': ['error', 4, { 'SwitchCase': 1 }],
+        'no-use-before-define': ['error', { 'functions': false }],
+    },
 };

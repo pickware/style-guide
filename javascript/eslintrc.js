@@ -1,7 +1,9 @@
+/* eslint-disable quote-props */
+
 module.exports = {
     'extends': 'airbnb-base',
     'plugins': [
-        'import'
+        'import',
     ],
     'rules': {
         'no-console': 0,
@@ -17,7 +19,7 @@ module.exports = {
         'class-methods-use-this': 0,
         'func-names': 0,
         'newline-before-return': ['error'],
-        'indent': ['error', 4, { "SwitchCase": 1 }],
-        'no-use-before-define': ['error', { "functions": false }],
-    }
+        'indent': ['error', 4, { 'SwitchCase': 1 }],
+        'no-use-before-define': ['error', { 'functions': false }],
+    },
 };
