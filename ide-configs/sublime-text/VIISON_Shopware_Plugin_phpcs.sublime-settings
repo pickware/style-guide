@@ -1,0 +1,19 @@
+{
+    "php_cs_fixer_executable_path": "/usr/local/opt/php-cs-fixer/php-cs-fixer",
+    "phpcbf_additional_args": {
+        // Use custom standard
+        "--standard": "~/Documents/VIISON/style-guide/php/php-codesniffer-standard/VIISON",
+        // Ignore warnings
+        "-n": ""
+    },
+    "phpcbf_executable_path": "/usr/local/opt/php-code-sniffer/scripts/phpcbf",
+    "phpcs_additional_args": {
+        // Use custom standard
+        "--standard": "~/Documents/VIISON/style-guide/php/php-codesniffer-standard/VIISON"
+        // Uncomment the following line to ignore warnings
+        // "-n": ""
+    },
+    "phpcs_executable_path": "/usr/local/opt/php-code-sniffer/scripts/phpcs",
+    "phpcs_php_path": "/usr/local/bin/php",
+    "phpmd_executable_path": "/usr/local/opt/phpmd/libexec/phpmd"
+}
