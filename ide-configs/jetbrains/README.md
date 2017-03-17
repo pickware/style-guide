@@ -14,4 +14,4 @@ family of IDEs:
 * Install php-code-sniffer (using `brew`, `pear`, `composer`, ...)
 * In PhpStorm's _Settings -> Languages & Frameworks -> PHP -> Code Sniffer_, specify the path where the `phpcs` script lives (usually `<install_dir>/scripts/phpcs`)
 * Import the `VIISON_Shopware_Plugin_inspections.xml` inspection profile (Editor -> Inspections)
-* Make sure the inspection _PHP -> PHP Code Sniffer validation_ has _Coding Standard: Custom_ set to the folder `php/php-codesniffer-standard/VIISON` in the `code-style` repo.
+* Make sure the inspection _PHP -> PHP Code Sniffer validation_ has _Coding Standard: Custom_ set to the folder `php/php-codesniffer-standard/VIISON` in the `style-guide` repo.
