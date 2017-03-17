@@ -18,6 +18,11 @@
         <exclude-pattern>*/Controllers/*</exclude-pattern>
     </rule>
 
+    <!-- Disable check for side effects in Bootstrap.php files -->
+    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+        <exclude-pattern>*/Bootstrap.php</exclude-pattern>
+    </rule>
+
     <!-- Disable method name sniff message for test classes -->
     <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
         <exclude-pattern>*/Test/*Test.php</exclude-pattern>
