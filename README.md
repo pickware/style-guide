@@ -15,6 +15,43 @@ Name              | Description
 `minor`           | A bug that we should fix, but for which a workaround exists or which has little impact on day-to-day use
 `trivial`         | A bug that has next to no impact and is easy to fix (e.g. translation error, small glitches)
 
+## git hooks
+
+You can add automatic code style checks to your shopware plugin repositories using the `pre-commit` git hook of `git-hooks/shopware-plugin`. Just change your plugin's `composer.json` as follows:
+
+```json
+...
+"repositories": [
+    ...
+    {
+        "type": "vcs",
+        "url": "git@github.com:VIISON/composer-git-hooks-installer-plugin.git"
+    },
+    {
+        "type": "vcs",
+        "url": "git@github.com:VIISON/style-guide.git"
+    },
+    ...
+],
+...
+"require": {
+    ...
+    "viison/style-guide": "*",
+    ...
+},
+...
+"extra": {
+    ...
+    "required-viison-git-hooks": {
+        "viison/style-guide": ["shopware-plugin"]
+    },
+    ...
+},
+...
+```
+
+Make sure to use the `*` wildcard as the required version of this repository to always use the latest code style definitions.
+
 ## ESLint
 
 Name                            | Description
