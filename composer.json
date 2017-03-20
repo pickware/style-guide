@@ -1,6 +1,12 @@
 {
     "name": "viison/style-guide",
     "type": "viison-git-hooks",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:VIISON/composer-git-hooks-installer-plugin.git"
+        }
+    ],
     "require": {
         "viison/composer-git-hooks-installer-plugin": "^1.0"
     },
