@@ -11,10 +11,12 @@
     <!-- Disable some namespacing sniff messages for Bootstrap.php and 'Controllers' files -->
     <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
         <exclude-pattern>*/Bootstrap.php</exclude-pattern>
+        <exclude-pattern>*/PluginBootstrap*.php</exclude-pattern>
         <exclude-pattern>*/Controllers/*</exclude-pattern>
     </rule>
     <rule ref="Squiz.Classes.ValidClassName.NotCamelCaps">
         <exclude-pattern>*/Bootstrap.php</exclude-pattern>
+        <exclude-pattern>*/PluginBootstrap*.php</exclude-pattern>
         <exclude-pattern>*/Controllers/*</exclude-pattern>
     </rule>
 
