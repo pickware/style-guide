@@ -1,0 +1,13 @@
+{
+    "name": "viison/style-guide",
+    "type": "viison-git-hooks",
+    "require": {
+        "viison/composer-git-hooks-installer-plugin": "^1.0"
+    },
+    "extra": {
+        "available-viison-git-hooks": {
+            "shopware-plugin": "git-hooks/shopware-plugin/"
+        }
+    },
+    "minimum-stability": "stable"
+}
