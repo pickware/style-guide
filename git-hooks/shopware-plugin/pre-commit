@@ -27,6 +27,7 @@ type phpcs >/dev/null 2>&1 || { echo >&2 "Failed to check code style, because th
 
 # Determine package paths
 phpcs_path=($(which phpcs))
+hookPath="`dirname \"$0\"`"
 
 # Check all staged files
 filenames=($(git diff --staged --name-only HEAD))
@@ -41,7 +42,7 @@ then
         if [[ $i == *.php ]] && [ -f $i ];
         then
             # Run PHP code style check (ignoring warnings)
-            $phpcs_path -p --severity=0 --standard=../../php/php-codesniffer-standard/VIISON/ $i
+            $phpcs_path -p --severity=0 --standard=$hookPath/../../php/php-codesniffer-standard/VIISON/ $i
             checkResult=$?
             if [ ${checkResult} -ne 0 ];
             then
