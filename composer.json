@@ -8,7 +8,7 @@
         }
     ],
     "require": {
-        "viison/composer-git-hooks-installer-plugin": "^1.0"
+        "viison/composer-git-hooks-installer-plugin": "^1.1"
     },
     "extra": {
         "available-viison-git-hooks": {

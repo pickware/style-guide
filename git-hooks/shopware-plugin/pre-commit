@@ -5,10 +5,19 @@
 # If you absolutely must commit without testing,
 # use: git commit --no-verify
 
+repo_dir=$1
+
 # Define some terminal text color shortcuts
 text_red=`tput setaf 1 > /dev/null 2>&1`
 text_green=`tput setaf 2 > /dev/null 2>&1`
 text_reset=`tput sgr0 > /dev/null 2>&1`
+
+# Check the repository for an .editorconfig file
+editor_config_path="$repo_dir/.editorconfig"
+if [ ! -f $editor_config_path ]; then
+    echo "${text_red}No .editorconfig file found in the repository. Please add the config found at http://github.com/VIISON/style-guide and commit again.${text_reset}"
+    exit 1;
+fi
 
 function source_home_file {
     file="$HOME/$1"
