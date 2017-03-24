@@ -6,9 +6,9 @@
 # use: git commit --no-verify
 
 # Define some terminal text color shortcuts
-text_red=`tput setaf 1`
-text_green=`tput setaf 2`
-text_reset=`tput sgr0`
+text_red=`tput setaf 1 > /dev/null 2>&1`
+text_green=`tput setaf 2 > /dev/null 2>&1`
+text_reset=`tput sgr0 > /dev/null 2>&1`
 
 function source_home_file {
     file="$HOME/$1"
