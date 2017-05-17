@@ -51,7 +51,7 @@ then
         if [[ $i == *.php ]] && [ -f $i ];
         then
             # Run PHP code style check (ignoring warnings)
-            $phpcs_path -p --severity=0 --standard=$hookPath/../../php/php-codesniffer-standard/VIISON/ $i
+            $phpcs_path -p --warning-severity=0 --standard=$hookPath/../../php/php-codesniffer-standard/VIISON/ $i
             checkResult=$?
             if [ ${checkResult} -ne 0 ];
             then
