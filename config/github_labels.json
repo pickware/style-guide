@@ -4,28 +4,40 @@
         "color": "ee0701"
     },
     {
+        "name": "critical",
+        "color": "b60205"
+    },
+    {
+        "name": "documentation",
+        "color": "d4c5f9"
+    },
+    {
         "name": "enhancement",
         "color": "84b6eb"
+    },
+    {
+        "name": "inform customer",
+        "color": "fbca04"
+    },
+    {
+        "name": "major",
+        "color": "ff6161"
+    },
+    {
+        "name": "minor",
+        "color": "ffb854"
     },
     {
         "name": "question",
         "color": "0e8a16"
     },
     {
+        "name": "refactoring",
+        "color": "1d76db"
+    },
+    {
         "name": "support",
         "color": "5319e7"
-    },
-    {
-        "name": "critical",
-        "color": "b60205"
-    },
-    {
-        "name": "major",
-        "color": "FF6161"
-    },
-    {
-        "name": "minor",
-        "color": "FFB854"
     },
     {
         "name": "trivial",
