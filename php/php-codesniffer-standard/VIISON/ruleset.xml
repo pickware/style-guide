@@ -9,9 +9,10 @@
         <exclude name="PSR2.ControlStructures.ElseIfDeclaration"/>
     </rule>
 
-    <!-- Explicitly enable the rule that enforces "elseif" over "else if" because that is disabled by default
-         because this is a SHOULD recommendation. -->
-    <rule ref="VIISON.ControlStructures.ElseIfDeclaration"/>
+    <!-- Promote the rule enforcing "elseif" over "else if" to an error, because this is a SHOULD recommendation. -->
+    <rule ref="PSR2.ControlStructures.ElseIfDeclaration.NotAllowed">
+        <type>error</type>
+    </rule>
 
     <!-- Disable some namespacing sniff messages for Bootstrap.php and 'Controllers' files -->
     <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
