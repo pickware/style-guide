@@ -6,7 +6,12 @@
     <!-- Include the whole PSR-2 standard, except for selected sniff messages -->
     <rule ref="PSR2">
         <exclude name="PSR2.ControlStructures.SwitchDeclaration.TerminatingComment"/>
+        <exclude name="PSR2.ControlStructures.ElseIfDeclaration"/>
     </rule>
+
+    <!-- Explicitly enable the rule that enforces "elseif" over "else if" because that is disabled by default
+         because this is a SHOULD recommendation. -->
+    <rule ref="VIISON.ControlStructures.ElseIfDeclaration"/>
 
     <!-- Disable some namespacing sniff messages for Bootstrap.php and 'Controllers' files -->
     <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
