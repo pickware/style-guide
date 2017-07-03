@@ -63,9 +63,9 @@ Name                            | Description
 
 To lint PHP Code using _PHP CodeSniffer_, you have to install the following packages:
 
-* php-code-sniffer
-* php-cs-fixer
-* php-md
+* `php-code-sniffer` (**at least `v3.0.0`**)
+* `php-cs-fixer`
+* `php-md`
 
 To install them on OS X using homebrew, run the following:
 

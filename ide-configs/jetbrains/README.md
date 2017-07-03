@@ -10,6 +10,8 @@ family of IDEs:
 
 ## PhpStorm config for plugin development
 
+**Our custom coding standard requires at least `v3.0.0` of `phpcs`!**
+
 * Check out style-guide below your project root (or somewhere else, but then you'll have to adjust the configuration accordingly)
 * Install php-code-sniffer (using `brew`, `pear`, `composer`, ...)
 * In PhpStorm's _Settings -> Languages & Frameworks -> PHP -> Code Sniffer_, specify the path where the `phpcs` script lives (usually `<install_dir>/scripts/phpcs`)
