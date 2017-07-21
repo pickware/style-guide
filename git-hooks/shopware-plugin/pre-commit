@@ -21,8 +21,8 @@ fi
 
 function source_home_file {
     file="$HOME/$1"
-    echo $file
-    [[ -f "${file}" ]] && source "${file}"
+    echo "Sourcing $file"
+    [[ -f "${file}" ]] && source "${file}" 2> /dev/null
 }
 
 # Inlcude any bash environments to make sure the $PATH is loaded properly
