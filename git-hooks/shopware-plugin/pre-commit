@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # Pre-commit Git hook.
-# Runs PHP CS on PHP files.
+# Runs PHP CS and ESLint on PHP files.
 #
 # If you absolutely must commit without testing,
 # use: git commit --no-verify
 
-repo_dir=$1
+repo_dir=$(pwd)
 
 # Define some terminal text color shortcuts
 text_red=`tput setaf 1 > /dev/null 2>&1`
@@ -81,7 +81,7 @@ then
     if [ -d "${repo_dir}/node_modules/viison-style-guide" ]
     then
         echo "NPM package viison-style-guide is installed, running ESLint..."
-        npm run eslint || exit 1
+        npm run -s eslint || exit 1
         echo
     fi
 fi
