@@ -16,5 +16,6 @@
         "eslint-config-airbnb-base": "^11.1.0",
         "eslint-plugin-import": "^2.2.0"
     },
+    "private": true,
     "homepage": "https://github.com/VIISON/style-guide#readme"
 }
