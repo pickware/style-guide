@@ -25,7 +25,7 @@ function source_home_file {
     [[ -f "${file}" ]] && source "${file}" 2> /dev/null
 }
 
-# Inlcude any bash environments to make sure the $PATH is loaded properly
+# Include any bash environments to make sure the $PATH is loaded properly
 source_home_file ".bash_profile"
 source_home_file ".zshrc"
 source_home_file ".bashrc"
@@ -65,8 +65,23 @@ fi
 if [[ ${errorsFound} == 0 ]]
 then
     echo "${text_green}PHP code style check passed.${text_reset}"
-    exit 0;
 else
     echo "${text_red}PHP code style errors were found. Please fix them and commit again.${text_reset}"
-    exit 1;
+    exit 1
+fi
+
+# Check whether we should run ESLint
+if [ -f "${repo_dir}/package.json" ];
+then
+    if [ ! -d "${repo_dir}/node_modules" ]
+    then
+        echo "${text_red}package.json found, but node_modules is missing. Please run npm install inside $(realpath ${repo_dir}).${text_reset}"
+        exit 1
+    fi
+    if [ -d "${repo_dir}/node_modules/viison-style-guide" ]
+    then
+        echo "NPM package viison-style-guide is installed, running ESLint..."
+        npm run eslint || exit 1
+        echo
+    fi
 fi
