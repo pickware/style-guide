@@ -4,6 +4,7 @@ module.exports = {
     'extends': '../legacy/eslintrc.js',
     'globals': {
         'Ext': false,
+        'ViisonCommonApp': false,
         'ViisonCurrencyFormatter': false,
         'Shopware': false,
     },
