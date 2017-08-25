@@ -17,7 +17,7 @@ Name              | Description
 
 ## git hooks
 
-You can add automatic code style checks to your shopware plugin repositories using the `pre-commit` git hook of `git-hooks/shopware-plugin`. Just change your plugin's `composer.json` as follows:
+You can add automatic code style checks to your shopware plugin repositories using the `pre-commit` and `pre-push` git hooks contained in `git-hooks/shopware-plugin`. Just change your plugin's `composer.json` as follows:
 
 ```json
 ...
