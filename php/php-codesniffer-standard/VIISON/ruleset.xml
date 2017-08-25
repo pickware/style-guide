@@ -3,6 +3,9 @@
     <!-- See https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml for more information -->
     <description>The VIISON PHP coding standard builds on the PSR-2 and Squiz coding standards.</description>
 
+    <!-- Enable colored output -->
+    <arg name="colors" />
+
     <!-- Exclude all static dependencies -->
     <exclude-pattern>*/vendor/*</exclude-pattern>
     <exclude-pattern>*/node_modules/*</exclude-pattern>
