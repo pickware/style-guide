@@ -3,6 +3,16 @@
     <!-- See https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml for more information -->
     <description>The VIISON PHP coding standard builds on the PSR-2 and Squiz coding standards.</description>
 
+    <!-- Exclude all static dependencies -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+
+    <!-- Exclude some non-PHP files to surpress confusing warnings -->
+    <exclude-pattern>*.css</exclude-pattern>
+    <exclude-pattern>*.html</exclude-pattern>
+    <exclude-pattern>*.js</exclude-pattern>
+    <exclude-pattern>*.tpl</exclude-pattern>
+
     <!-- Include the whole PSR-2 standard, except for selected sniff messages -->
     <rule ref="PSR2">
         <exclude name="PSR2.ControlStructures.SwitchDeclaration.TerminatingComment"/>
