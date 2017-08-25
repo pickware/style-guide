@@ -6,6 +6,8 @@
     <!-- Enable colored output -->
     <arg name="colors" />
 
+    <config name="ignore_warnings_on_exit" value="true" />
+
     <!-- Exclude all static dependencies -->
     <exclude-pattern>*/vendor/*</exclude-pattern>
     <exclude-pattern>*/node_modules/*</exclude-pattern>
