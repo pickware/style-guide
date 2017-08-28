@@ -1,6 +1,11 @@
 # ESLint configuration
 
 Include `"viison-style-guide": "git+https://github.com/VIISON/style-guide.git"` in devDependencies in your `package.json`
+Add the following lines to your `.gitignore`
+```
+/node_modules
+/package-lock.json
+```
 
 ## Modern Javascript (ES2016 and beyond)
 
