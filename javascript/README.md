@@ -1,6 +1,6 @@
-# ESLint configuration
+# Configure ESLint for Shopware Plugins
 
-Include `"viison-style-guide": "git+https://github.com/VIISON/style-guide.git"` in devDependencies in your `package.json`.
+Include `"viison-style-guide": "git+https://github.com/VIISON/style-guide.git"` in devDependencies in your `plugin.json`.
 
 Add the following lines to your `.gitignore`
 ```
@@ -42,26 +42,27 @@ Create a `package.json` file with the following lines and change it to your plug
 
 ```
 
-Create a `.eslintrc.js` file and configure it.
+Create a `.eslintrc.js` file and insert the following lines
+```
+module.exports = {
+    extends: "./node_modules/viison-style-guide/javascript/shopware-plugin/eslintrc.js"
+};
+```
 
-## Configure .eslintrc.js
+# Configure ESLint for alternative development
+
+Include `"viison-style-guide": "git+https://github.com/VIISON/style-guide.git"` in devDependencies in your `package.json`.
+
+Create a `.eslintrc.js` file and insert one of the following configuration lines
 
 To utilize Modern Javascript (ES2016 and beyond) *ES6* linting
 ```
 module.exports = require('viison-style-guide/javascript/eslintrc');
 ```
 
-
 To utilize Legacy *ES5* linting
 ```
 module.exports = require('viison-style-guide/javascript/legacy/eslintrc');
-```
-
-To utilize our custom Shopware Plugin linting
-```
-module.exports = {
-    extends: "./node_modules/viison-style-guide/javascript/shopware-plugin/eslintrc.js"
-};
 ```
 
 # ESLint usage
