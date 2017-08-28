@@ -1,6 +1,6 @@
 # ESLint configuration
 
-Include `"viison-style-guide": "git+https://github.com/VIISON/style-guide.git"` in devDependencies in your `package.json`
+Include `"viison-style-guide": "git+https://github.com/VIISON/style-guide.git"` in devDependencies in your `package.json`.
 Add the following lines to your `.gitignore`
 ```
 /node_modules
@@ -33,7 +33,7 @@ module.exports = {
 # ESLint usage
 
 For detailed information see [ESLint Getting Started Guide](https://eslint.org/docs/user-guide/getting-started)
-To check a specific JS file in your plugin, use a similar command to the following in your plugin root directory
+To check a specific JS file in your plugin, use a similar command to the following in your plugin root directory.
 ```
 ./node_modules/.bin/eslint Views/backend/viisonYourPluginFeature/view/window.js
 ```
