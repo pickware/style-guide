@@ -42,5 +42,9 @@
     {
         "name": "trivial",
         "color": "fef2c0"
+    },
+    {
+        "name": "waiting",
+        "color": "1d76db"
     }
 ]
