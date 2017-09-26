@@ -29,6 +29,13 @@
         <type>error</type>
     </rule>
 
+    <!-- Disallow certain functions that should not exist in a production environment -->
+    <rule ref="Generic.PHP.ForbiddenFunctions">
+        <properties>
+            <property name="forbiddenFunctions" type="array" value="create_function=>null,die=>null,error_log=>null,eval=>null,extract=>null,ini_set=>null,is_null=>null,print_r=>null,sizeof=>count,sys_get_temp_dir=>null,var_dump=>null"/>
+        </properties>
+    </rule>
+
     <!-- Disable some namespacing sniff messages for Bootstrap.php and 'Controllers' files -->
     <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
         <exclude-pattern>*/Bootstrap.php</exclude-pattern>
