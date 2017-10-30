@@ -673,21 +673,29 @@ class ArrayDeclarationSniff implements Sniff
                 continue;
             }
 
-            $expectedArrowOffset = $tokens[$index['index']]['column'] + $tokens[$index['index']]['length'] + 1;
-            if ($tokens[$index['arrow']]['column'] !== $expectedArrowOffset) {
-                $found    = ($tokens[$index['arrow']]['column'] - (strlen($index['index_content']) + $tokens[$index['index']]['column']));
-                $error    = 'Array double arrow not aligned correctly; expected %s space(s) but found %s';
-                $data     = array(
-                    $expectedArrowOffset,
-                    $found,
-                );
-
-                $fix = $phpcsFile->addFixableError($error, $index['arrow'], 'DoubleArrowNotAligned', $data);
+            if ($tokens[$index['arrow'] - 1]['code'] !== T_WHITESPACE || $tokens[$index['arrow'] - 1]['length'] !== 1) {
+                $error = 'Array double arrow must be preceded by exactly one space';
+                $fix = $phpcsFile->addFixableError($error, $index['arrow'], 'DoubleArrowPrecedingWhitespace', array());
                 if ($fix === true) {
-                    if ($found === 0) {
-                        $phpcsFile->fixer->addContent(($index['arrow'] - 1), str_repeat(' ', $expectedArrowOffset));
+                    if ($tokens[$index['arrow'] - 1]['code'] !== T_WHITESPACE) {
+                        $phpcsFile->fixer->addContent(($index['arrow'] - 1), ' ');
                     } else {
-                        $phpcsFile->fixer->replaceToken(($index['arrow'] - 1), str_repeat(' ', $expectedArrowOffset));
+                        // Too much whitespace
+                        $phpcsFile->fixer->replaceToken(($index['arrow'] - 1), ' ');
+                    }
+                }
+
+                continue;
+            }
+            if ($tokens[$index['arrow'] + 1]['code'] !== T_WHITESPACE || $tokens[$index['arrow'] + 1]['length'] !== 1) {
+                $error = 'Array double arrow must be followed by exactly one space';
+                $fix = $phpcsFile->addFixableError($error, $index['arrow'], 'DoubleArrowFollowingWhitespace', array());
+                if ($fix === true) {
+                    if ($tokens[$index['arrow'] + 1]['code'] !== T_WHITESPACE) {
+                        $phpcsFile->fixer->addContent($index['arrow'], ' ');
+                    } else {
+                        // Too much whitespace
+                        $phpcsFile->fixer->replaceToken(($index['arrow'] + 1), ' ');
                     }
                 }
 
