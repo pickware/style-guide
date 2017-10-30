@@ -609,8 +609,6 @@ class ArrayDeclarationSniff implements Sniff
         $numValues = count($indices);
 
         $indicesStart  = ($keywordIndentation + 4);
-        $arrowStart    = ($indicesStart + $maxLength + 1);
-        $valueStart    = ($arrowStart + 3);
         $indexLine     = $tokens[$stackPtr]['line'];
         $lastIndexLine = null;
         foreach ($indices as $index) {
