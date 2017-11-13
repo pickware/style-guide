@@ -28,6 +28,12 @@ Include `Factory` in the class name.
 Reasoning:
 - The name implies the factory pattern. 
 
+## Structs
+Do **NOT** include `Struct` in class name.
+
+Reasoning:
+- There is no value in doing so.
+
 ## Name Blacklist
 Please do not use these words in your classes
 - Base
