@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- Place this file in you Shopware plugin's root directory and rename it to phpcs.xml -->
+<ruleset name="VIISON-5.6">
+    <description>VIISON styling rules specialize for a specific php version</description>
+
+    <!-- Use the VIISON ruleset installed by composer -->
+    <rule ref="./vendor/viison/style-guide/php/php-codesniffer-standard/VIISON">
+        <include-pattern>*.php</include-pattern>
+    </rule>
+
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax.Found">
+      <type>error</type>
+    </rule>
+</ruleset>
