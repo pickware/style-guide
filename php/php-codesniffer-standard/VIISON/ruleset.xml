@@ -61,4 +61,55 @@
     <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
         <exclude-pattern>*/Test/*Test.php</exclude-pattern>
     </rule>
+
+    <!-- Disallow short opening php tag <? -->
+    <rule ref="Generic.PHP.DisallowShortOpenTag"/>
+
+    <!-- Disallow closing php tag ?> -->
+    <rule ref="Zend.Files.ClosingTag"/>
+
+    <!-- Disallow $this in static methods -->
+    <rule ref="Squiz.Scope.StaticThisUsage"/>
+
+    <!-- Disallow unused function parameters -->
+    <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
+
+    <!-- Disallow if-else block with no effect -->
+    <rule ref="Generic.CodeAnalysis.EmptyStatement"/>
+
+    <!-- Disallow  if statements that always evaluate true or false -->
+    <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
+
+    <!-- Disallow if-else, loops etc. without curly braces, i.e. "if (true) doStuff()" -->
+    <rule ref="Generic.ControlStructures.InlineControlStructure"/>
+
+    <!-- Disallow $a = 'foo'; $b = 'bar'; in the same line -->
+    <rule ref="Generic.Formatting.DisallowMultipleStatements"/>
+
+    <!-- Disallow error silencing with @ (<?php @methodThatFailsWontThrowException() ?>) -->
+    <rule ref="Generic.PHP.NoSilencedErrors"/>
+
+    <!-- Disallow access to superglobals $_REQUESt, $_GET, $_POST and $_FILES (the error message is bad) -->
+    <rule ref="MySource.PHP.GetRequestData"/>
+
+    <!-- Disallow multiple assignems in a single statement, i.e. $foo = $bar = "baz"; -->
+    <rule ref="Squiz.PHP.DisallowMultipleAssignments"/>
+
+    <!-- Disallow global keyword => function foo() { global $db; $db->query('...') } -->
+    <rule ref="Squiz.PHP.GlobalKeyword"/>
+
+    <!-- Disallow function definitions within functions (except closures) -->
+    <rule ref="Squiz.PHP.InnerFunctions"/>
+
+    <!-- Detect code that could never be reached -->
+    <rule ref="Squiz.PHP.NonExecutableCode"/>
+
+    <!-- Disallow assignments in conditional statemens -->
+    <rule ref="Generic.CodeAnalysis.AssignmentInCondition"/>
+
+    <!-- Disallow lower case characters in constant names -->
+    <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
+
+    <!-- Line endings must be in Unix format "\n" -->
+    <rule ref="Generic.Files.LineEndings"/>
 </ruleset>
