@@ -34,18 +34,18 @@ class DoubleNewlineSniff implements Sniff
         }
         $currentNewlineToken = $tokens[$stackPointer];
 
-        // Find previous newline
-        $prevNewlinePointer = $stackPointer;
+        // Find last token of the previous line
+        $prevFinalPointer = $stackPointer;
         do {
-            $prevNewlinePointer -= 1;
-            $prevNewlineToken = $tokens[$prevNewlinePointer];
-        } while ($prevNewlineToken['content'] !== "\n" && $prevNewlinePointer > 0);
-        if ($prevNewlineToken['code'] !== T_WHITESPACE) {
+            $prevFinalPointer -= 1;
+            $prevFinalToken = $tokens[$prevFinalPointer];
+        } while ($prevFinalToken['line'] === $currentNewlineToken['line'] && $prevFinalPointer > 0);
+        if ($prevFinalToken['code'] !== T_WHITESPACE && $prevFinalToken['code'] !== T_COMMENT) {
             return;
         }
 
         // Check previous line for being empty
-        if (!self::isTokenEndingEmptyLine($prevNewlinePointer, $tokens)) {
+        if (!self::isTokenEndingEmptyLine($prevFinalPointer, $tokens)) {
             return;
         }
 
@@ -67,8 +67,9 @@ class DoubleNewlineSniff implements Sniff
     {
         $currentToken = $tokens[$tokenPointer];
 
-        // Check whether token is a newline
-        if ($currentToken['content'] !== "\n") {
+        // Check whether the token ends with a newline (PHP CS treats newlines at the end of a comment as a part of that
+        // comment)
+        if (mb_substr($currentToken['content'], -1) !== "\n") {
             return false;
         }
 
