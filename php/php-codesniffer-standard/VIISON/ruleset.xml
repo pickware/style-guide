@@ -78,16 +78,22 @@
     <rule ref="Generic.CodeAnalysis.EmptyStatement"/>
 
     <!-- Disallow  if statements that always evaluate true or false -->
-    <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
+    <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement">
+        <type>error</type>
+    </rule>
 
     <!-- Disallow if-else, loops etc. without curly braces, i.e. "if (true) doStuff()" -->
-    <rule ref="Generic.ControlStructures.InlineControlStructure"/>
+    <rule ref="Generic.ControlStructures.InlineControlStructure">
+        <type>error</type>
+    </rule>
 
     <!-- Disallow $a = 'foo'; $b = 'bar'; in the same line -->
     <rule ref="Generic.Formatting.DisallowMultipleStatements"/>
 
     <!-- Disallow error silencing with @ (<?php @methodThatFailsWontThrowException() ?>) -->
-    <rule ref="Generic.PHP.NoSilencedErrors"/>
+    <rule ref="Generic.PHP.NoSilencedErrors">
+        <type>error</type>
+    </rule>
 
     <!-- Disallow access to superglobals $_REQUESt, $_GET, $_POST and $_FILES (the error message is bad) -->
     <rule ref="MySource.PHP.GetRequestData"/>
@@ -102,10 +108,14 @@
     <rule ref="Squiz.PHP.InnerFunctions"/>
 
     <!-- Detect code that could never be reached -->
-    <rule ref="Squiz.PHP.NonExecutableCode"/>
+    <rule ref="Squiz.PHP.NonExecutableCode">
+        <type>error</type>
+    </rule>
 
     <!-- Disallow assignments in conditional statemens -->
-    <rule ref="Generic.CodeAnalysis.AssignmentInCondition"/>
+    <rule ref="Generic.CodeAnalysis.AssignmentInCondition">
+        <type>error</type>
+    </rule>
 
     <!-- Disallow lower case characters in constant names -->
     <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
