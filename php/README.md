@@ -16,10 +16,10 @@ E.g.:
 
 
 ## Abstract classes
-Include `Abstract` in the class name.
+Include the prefix `Abstract` in the class name.
 
 Reasoning:
-- Abstract classes need to be differentiable towards interfaces they implement.
+- Abstract classes need to be distinguishable from interfaces they implement.
 
 E.g.:
 
@@ -30,12 +30,12 @@ E.g.:
 - `abstract class Struct`
 
 ## Services
-Include `Service` in the class name.
+Suffix the class name with `Service`.
 
-Do **NOT** include service in the service name.
+Do **NOT** include `service` in the service name in the Dependency Injection Container.
 
 Reasoning:
-- Service is created to be accessed using the DIC, implicating that it is a service
+- Service is created to be accessed using the Dependency Injection Container, implicating that it is a service
 
 E.g.:
 - `class DocumentRenderingService`
@@ -46,7 +46,7 @@ E.g.:
 - `class Translation`
 
 ## Factories
-Include `Factory` in the class name.
+Include the suffix `Factory` in the class name.
 
 (Usually Factories are services, therefore their class name should end with `FactoryService`)
 
@@ -74,11 +74,11 @@ E.g.:
 - `class CategoryStruct`
 
 ## Name Blacklist
-Please do not use these words in your classes
+Please do not use these words in your classes since they are too generic and/or meaningless:
 - Base
 - Data
 - Information
 - Manager
 
 ## Additional remark
-- A class name has to be logical even without its namespace
+- A class name has to be understandable as well as distinguishable even without its namespace
