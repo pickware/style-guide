@@ -35,7 +35,7 @@ Suffix the class name with `Service`.
 Do **NOT** include `service` in the service name in the Dependency Injection Container.
 
 Reasoning:
-- Service is created to be accessed using the Dependency Injection Container, implicating that it is a service
+- Service is created to be accessed using the Dependency Injection Container, implying that it is a service
 
 E.g.:
 - `class DocumentRenderingService`
