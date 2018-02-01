@@ -3,10 +3,6 @@
     <!-- See https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml for more information -->
     <description>The VIISON PHP coding standard builds on the PSR-2 and Squiz coding standards.</description>
 
-    <!-- You must set the following config e.g. in your phpcs.xml to define which arrays syntax must be used. Please
-         note that short array syntax is only available strating from PHP 5.4 -->
-    <!-- <config name="viisonArraySyntaxType" value="long" /> -->
-
     <!-- Enable colored output -->
     <arg name="colors" />
 
@@ -122,4 +118,7 @@
 
     <!-- Line endings must be in Unix format "\n" -->
     <rule ref="Generic.Files.LineEndings"/>
+
+    <!-- Disallow long array syntax -->
+    <rule ref="Generic.Arrays.DisallowLongArraySyntaxSniff"/>
 </ruleset>
