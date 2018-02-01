@@ -120,5 +120,5 @@
     <rule ref="Generic.Files.LineEndings"/>
 
     <!-- Disallow long array syntax -->
-    <rule ref="Generic.Arrays.DisallowLongArraySyntaxSniff"/>
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
 </ruleset>
