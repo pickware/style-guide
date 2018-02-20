@@ -18,7 +18,7 @@ class FunctionReturnSpaceUnitTest extends AbstractSniffUnitTest
                     81 => 1,
                     126 => 1,
                     129 => 1,
-                    135 => 1
+                    135 => 1,
                 ];
             default:
                 return [];

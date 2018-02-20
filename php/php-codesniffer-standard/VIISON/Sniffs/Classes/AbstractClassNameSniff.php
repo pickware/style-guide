@@ -8,6 +8,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * Finds classes that are declared 'abstract' but whose name does not start with 'Abstract', as well as non-abstract
  * classes whose name does start with 'Abstract'.
  */
+// phpcs:ignore VIISON.Classes.AbstractClassName
 class AbstractClassNameSniff implements Sniff
 {
     const ABSTRACT_PREFIX = 'Abstract';
