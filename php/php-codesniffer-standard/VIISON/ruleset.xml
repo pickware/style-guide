@@ -36,28 +36,6 @@
         </properties>
     </rule>
 
-    <!-- Disable some namespacing sniff messages for Bootstrap.php and 'Controllers' files -->
-    <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
-        <exclude-pattern>*/Bootstrap.php</exclude-pattern>
-        <exclude-pattern>*/PluginBootstrap*.php</exclude-pattern>
-        <exclude-pattern>*/Controllers/*</exclude-pattern>
-    </rule>
-    <rule ref="Squiz.Classes.ValidClassName.NotCamelCaps">
-        <exclude-pattern>*/Bootstrap.php</exclude-pattern>
-        <exclude-pattern>*/PluginBootstrap*.php</exclude-pattern>
-        <exclude-pattern>*/Controllers/*</exclude-pattern>
-    </rule>
-
-    <!-- Disable check for side effects in Bootstrap.php files -->
-    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
-        <exclude-pattern>*/Bootstrap.php</exclude-pattern>
-    </rule>
-
-    <!-- Disable method name sniff message for test classes -->
-    <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
-        <exclude-pattern>*/Test/*Test.php</exclude-pattern>
-    </rule>
-
     <!-- Disallow short opening php tag <? -->
     <rule ref="Generic.PHP.DisallowShortOpenTag"/>
 
@@ -121,4 +99,35 @@
 
     <!-- Disallow long array syntax -->
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+
+    <!--
+        *************************
+        * Shopware plugin rules *
+        *************************
+    -->
+
+    <!-- Disable namespacing and class name checks for Bootstrap.php and controller files -->
+    <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
+        <exclude-pattern>*/Bootstrap.php</exclude-pattern>
+        <exclude-pattern>*/Controllers/*.php</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.Classes.ValidClassName.NotCamelCaps">
+        <exclude-pattern>*/Bootstrap.php</exclude-pattern>
+        <exclude-pattern>*/Controllers/*.php</exclude-pattern>
+    </rule>
+
+    <!-- Disable check for side effects in Bootstrap.php files -->
+    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+        <exclude-pattern>*/Bootstrap.php</exclude-pattern>
+    </rule>
+
+    <!-- Disable method name checks for test classes -->
+    <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
+        <exclude-pattern>*/Test/*Test.php</exclude-pattern>
+    </rule>
+
+    <!-- Exclude all shared dependencies (located outside of vendor) -->
+    <exclude-pattern>*/ViisonCommon/*</exclude-pattern>
+    <exclude-pattern>*/ViisonPickwareCommon/*</exclude-pattern>
+    <exclude-pattern>*/ViisonShippingCommon/*</exclude-pattern>
 </ruleset>

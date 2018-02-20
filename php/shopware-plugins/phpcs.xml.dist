@@ -1,20 +1,6 @@
 <?xml version="1.0"?>
 <!-- Place this file in you Shopware plugin's root directory and rename it to phpcs.xml -->
 <ruleset name="ShopwarePlugins">
-    <!-- See https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml for more information -->
-    <description>A default PHP CS config for VIISON shopware plugins.</description>
-
     <!-- Use the VIISON ruleset installed by composer -->
-    <rule ref="./vendor/viison/style-guide/php/php-codesniffer-standard/VIISON">
-        <include-pattern>*.php</include-pattern>
-    </rule>
-
-    <!-- Decide which array snytax (long/short) must be used. That is, if the plugin is compatible to Shopware 4, we
-         MUST use long array syntax. Otherwise we should use short array syntax. -->
-    <!-- <config name="viisonArraySyntaxType" value="long" /> -->
-
-    <!-- Exclude all shared dependencies (extend these excludes as necessary) -->
-    <exclude-pattern>*/ViisonCommon/*</exclude-pattern>
-    <!-- <exclude-pattern>*/ViisonPickwareCommon/*</exclude-pattern> -->
-    <!-- <exclude-pattern>*/ViisonShippingCommon/*</exclude-pattern> -->
+    <rule ref="./vendor/viison/style-guide/php/php-codesniffer-standard/VIISON" />
 </ruleset>
