@@ -11,6 +11,10 @@
     "bugs": {
         "url": "https://github.com/VIISON/style-guide/issues"
     },
+    "scripts": {
+        "eslint": "eslint .",
+        "eslint:fix": "eslint --fix ."
+    },
     "dependencies": {
         "eslint": "^3.15.0",
         "eslint-config-airbnb-base": "^11.1.0",
