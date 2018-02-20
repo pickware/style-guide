@@ -1,0 +1,19 @@
+language: php
+sudo: false
+
+matrix:
+  include:
+    - php: 5.4
+
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+
+install:
+  - composer install
+  - npm install
+
+script:
+  - composer phplint
+  - composer phpcs
+  - npm run eslint
