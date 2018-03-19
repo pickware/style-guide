@@ -125,9 +125,4 @@
     <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
         <exclude-pattern>*/Test/*Test\.php$</exclude-pattern>
     </rule>
-
-    <!-- Exclude all shared dependencies (located outside of vendor) -->
-    <exclude-pattern>*/ViisonCommon/*</exclude-pattern>
-    <exclude-pattern>*/ViisonPickwareCommon/*</exclude-pattern>
-    <exclude-pattern>*/ViisonShippingCommon/*</exclude-pattern>
 </ruleset>
