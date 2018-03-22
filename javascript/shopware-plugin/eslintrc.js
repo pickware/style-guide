@@ -7,6 +7,7 @@ module.exports = {
         'ViisonCommonApp': false,
         'ViisonCurrencyFormatter': false,
         'Shopware': false,
+        'timeFormat': false,
     },
     rules: {
         // Downgrade max-len to warning since this is impractical with ExtJS's protracted class names
