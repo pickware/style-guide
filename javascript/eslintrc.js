@@ -6,9 +6,9 @@ module.exports = {
         'import',
     ],
     'rules': {
-        'no-console': 0,
+        'no-console': 'off',
         'max-len': ['error', 120],
-        'no-param-reassign': 0,
+        'no-param-reassign': 'off',
         'comma-dangle': ['error', {
             arrays: 'always-multiline',
             objects: 'always-multiline',
@@ -16,8 +16,8 @@ module.exports = {
             exports: 'always-multiline',
             functions: 'never',
         }],
-        'class-methods-use-this': 0,
-        'func-names': 0,
+        'class-methods-use-this': 'off',
+        'func-names': 'off',
         'newline-before-return': ['error'],
         'indent': ['error', 4, { 'SwitchCase': 1 }],
         'no-use-before-define': ['error', { 'functions': false }],
