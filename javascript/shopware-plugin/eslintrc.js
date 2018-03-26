@@ -14,5 +14,10 @@ module.exports = {
         'max-len': ['warn', 120],
         'consistent-this': ['warn', 'actuallyWeDontAllowThisAtAll'],
         'no-console': 'error',
+        'no-restricted-properties': ['error', {
+            object: 'Ext',
+            property: 'bind',
+            message: 'Please use Function.prototype.bind() instead.'
+        }],
     },
 };
