@@ -17,7 +17,7 @@ module.exports = {
         'no-restricted-properties': ['error', {
             object: 'Ext',
             property: 'bind',
-            message: 'Please use Function.prototype.bind() instead.'
+            message: 'Please use Function.prototype.bind() instead.',
         }],
     },
 };
