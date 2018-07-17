@@ -100,6 +100,9 @@
     <!-- Disallow long array syntax -->
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
 
+    <!-- Detect wrong operator spacing -->
+    <rule ref="Squiz.WhiteSpace.OperatorSpacing"/>
+
     <!--
         *************************
         * Shopware plugin rules *
