@@ -21,5 +21,6 @@ module.exports = {
         'newline-before-return': ['error'],
         'indent': ['error', 4, { 'SwitchCase': 1 }],
         'no-use-before-define': ['error', { 'functions': false }],
+        'multiline-ternary': ["error", "never"],
     },
 };
