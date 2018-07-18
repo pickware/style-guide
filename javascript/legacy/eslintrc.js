@@ -19,5 +19,8 @@ module.exports = {
         'indent': ['error', 4, { 'SwitchCase': 1 }],
         'no-use-before-define': ['error', { 'functions': false }],
         'vars-on-top': 'off',
+        'multiline-ternary': ['error', 'never'],
+        'curly': ['error', 'all'],
+        'no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 1 }],
     },
 };
