@@ -5,6 +5,7 @@ module.exports = {
     'globals': {
         'Ext': false,
         'ViisonCommonApp': false,
+        'ViisonCommonEventBus': false,
         'ViisonCommonShopwareVersionUtil': false,
         'ViisonCurrencyFormatter': false,
         'Shopware': false,
