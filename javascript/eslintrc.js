@@ -23,6 +23,7 @@ module.exports = {
         'no-use-before-define': ['error', { 'functions': false }],
         'multiline-ternary': ['error', 'never'],
         'curly': ['error', 'all'],
+        'brace-style': ['error', '1tbs', { 'allowSingleLine': false }],
         'no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 1 }],
     },
 };
