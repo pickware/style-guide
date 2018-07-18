@@ -23,5 +23,6 @@ module.exports = {
         'no-use-before-define': ['error', { 'functions': false }],
         'multiline-ternary': ['error', 'never'],
         'curly': ['error', 'all'],
+        'no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 1 }],
     },
 };
