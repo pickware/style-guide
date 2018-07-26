@@ -106,6 +106,13 @@
     <!-- Disallow double quoted strings, if they don't contain an escape sequence -->
     <rule ref="Squiz.Strings.DoubleQuoteUsage"/>
 
+    <!-- Disallow unnecessary string concatenations in a single line -->
+    <rule ref="Generic.Strings.UnnecessaryStringConcat">
+        <properties>
+            <property name="allowMultiline" type="boolean" value="true"/>
+        </properties>
+    </rule>
+
     <!--
         *************************
         * Shopware plugin rules *
