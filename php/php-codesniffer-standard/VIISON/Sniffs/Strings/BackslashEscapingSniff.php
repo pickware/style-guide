@@ -6,11 +6,11 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
  * Finds strings that contain unescaped backslashes, which are not escaping another character. These backslashes must be
- * escaped themself.
+ * escaped themselves.
  */
 class BackslashEscapingSniff implements Sniff
 {
-    const ERROR_MESSAGE = 'Non-escaping backslashes must be escaped themself';
+    const ERROR_MESSAGE = 'Non-escaping backslashes must be escaped themselves';
 
     /**
      * @inheritdoc
