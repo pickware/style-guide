@@ -45,9 +45,6 @@
     <!-- Disallow $this in static methods -->
     <rule ref="Squiz.Scope.StaticThisUsage"/>
 
-    <!-- Disallow unused function parameters -->
-    <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
-
     <!-- Disallow if-else block with no effect -->
     <rule ref="Generic.CodeAnalysis.EmptyStatement"/>
 
