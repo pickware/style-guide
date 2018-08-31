@@ -40,7 +40,7 @@ class DoubleNewlineSniff implements Sniff
             $prevFinalPointer -= 1;
             $prevFinalToken = $tokens[$prevFinalPointer];
         } while ($prevFinalToken['line'] === $currentNewlineToken['line'] && $prevFinalPointer > 0);
-        if ($prevFinalToken['code'] !== T_WHITESPACE && $prevFinalToken['code'] !== T_COMMENT) {
+        if ($prevFinalToken['code'] !== T_WHITESPACE) {
             return;
         }
 
