@@ -1,7 +1,3 @@
-included:
-  - POS
-  - POSSnapshot
-  - POSTests
 excluded:
   - CustomFrameworks
   - Pods
