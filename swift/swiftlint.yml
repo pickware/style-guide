@@ -3,6 +3,7 @@ excluded:
     - CocoaCommon/Example/Pods
     - Example/Pods
     - fastlane
+    - vendor # For some reason, fastlane gets installed into a vendor directory on Travis
 disabled_rules:
     - cyclomatic_complexity
     - file_length
