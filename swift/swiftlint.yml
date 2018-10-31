@@ -127,9 +127,9 @@ discouraged_direct_init:
 discouraged_object_literal:
     severity: error
 discouraged_optional_boolean:
-    severity: warning
+    severity: error
 discouraged_optional_collection:
-    severity: warning
+    severity: error
 empty_enum_arguments:
     severity: error
 empty_parameters:
