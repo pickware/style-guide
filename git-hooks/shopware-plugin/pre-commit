@@ -33,10 +33,6 @@ fi
 codeStyleErrors=0
 
 # Run PHP code style check (ignoring warnings)
-type phpcs >/dev/null 2>&1 || {
-    echo "${text_red}Cannot run PHP code style check, because the require package 'phpcs' is not installed.${text_reset}"
-    exit 1
-}
 if [ ! -d "${repo_dir}/vendor/viison/style-guide" ]; then
     echo "${text_red}Cannot run PHP code style check, because the 'viison/style-guide' dependency appears to not be installed. Please run 'composer install' inside $(realpath ${repo_dir}).${text_reset}"
     exit 1
@@ -50,7 +46,7 @@ echo -e "\nComposer package 'viison/style-guide' is installed, will run PHP Code
 did_composer_validate=0
 for i in "${changedFiles[@]}"; do
     if [[ $i == *.php ]] && [ -f $i ]; then
-        $(which phpcs) --warning-severity=0 $i
+        "${repo_dir}/vendor/bin/phpcs" --warning-severity=0 $i
         phpcsResult=$?
         if [ ${phpcsResult} -ne 0 ]; then
             # File has code style issues

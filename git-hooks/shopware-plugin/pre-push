@@ -30,10 +30,6 @@ source_home_file ".bashrc"
 source_home_file ".profile"
 
 # Run PHP code style check (ignoring warnings)
-type phpcs >/dev/null 2>&1 || {
-    echo "${text_red}Cannot run PHP code style check, because the require package 'phpcs' is not installed.${text_reset}"
-    exit 1
-}
 if [ ! -d "${repo_dir}/vendor/viison/style-guide" ]; then
     echo "${text_red}Cannot run PHP code style check, because the 'viison/style-guide' dependency appears to not be installed. Please run 'composer install' inside $(realpath ${repo_dir}).${text_reset}"
     exit 1
@@ -43,7 +39,7 @@ if [ ! -f "${repo_dir}/phpcs.xml" ]; then
     exit 1
 fi
 echo -e "\nComposer package 'viison/style-guide' is installed, running PHP Code Sniffer on all PHP files..."
-$(which phpcs) --warning-severity=0 $repo_dir || exit 1
+"${repo_dir}/vendor/bin/phpcs" --warning-severity=0 $repo_dir || exit 1
 echo -e "${text_green}PHP code style check passed.${text_reset}\n"
 
 # Check whether we should run ESLint
