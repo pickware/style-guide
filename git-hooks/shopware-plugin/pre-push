@@ -18,17 +18,6 @@ if [ ! -f $editor_config_path ]; then
     exit 1
 fi
 
-# Include any bash environments to make sure the $PATH is loaded properly
-function source_home_file {
-    file="$HOME/$1"
-    echo "Sourcing $file"
-    [[ -f "${file}" ]] && source "${file}" 2> /dev/null
-}
-source_home_file ".bash_profile"
-source_home_file ".zshrc"
-source_home_file ".bashrc"
-source_home_file ".profile"
-
 # Run PHP code style check (ignoring warnings)
 if [ ! -d "${repo_dir}/vendor/viison/style-guide" ]; then
     echo "${text_red}Cannot run PHP code style check, because the 'viison/style-guide' dependency appears to not be installed. Please run 'composer install' inside $(realpath ${repo_dir}).${text_reset}"
