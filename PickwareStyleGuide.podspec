@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/VIISON/style-guide.git", :branch => "fixpunkt/add-swiftlint" }
   s.resources = "swift/*"
 
-  s.dependency 'SwiftLint', '~> 0.27.0'
+  s.dependency 'SwiftLint', '~> 0.28.1'
 end
