@@ -23,6 +23,7 @@ opt_in_rules:
     - block_based_kvo
     - closure_end_indentation
     - closure_spacing
+    - collection_alignment
     - conditional_returns_on_newline
     - contains_over_first_not_nil
     - convenience_type
@@ -34,12 +35,14 @@ opt_in_rules:
     - empty_xctest_method
     - explicit_acl
     - explicit_init
+    - explicit_self
     - explicit_type_interface
     - fallthrough
     - fatal_error_message
     - first_where
     - force_unwrapping
     - function_default_parameter_at_end
+    - identical_operands
     - identifier_name
     - implicit_return
     - implicitly_unwrapped_optional
@@ -58,12 +61,16 @@ opt_in_rules:
     - single_test_class
     - sorted_first_last
     - sorted_imports
+    - static_operator
     - switch_case_on_newline
+    - toggle_bool
     - trailing_closure
     - trailing_comma
     - unavailable_function
     - unneeded_parentheses_in_closure_argument
     - untyped_error_in_catch
+    - unused_import
+    - unused_private_declaration
     - vertical_parameter_alignment_on_call
 identifier_name:
     min_length:
@@ -107,6 +114,8 @@ closure_parameter_position:
     severity: error
 closure_spacing:
     severity: error
+collection_alignment:
+    severity: error
 colon:
     severity: error
 comma:
@@ -145,6 +154,8 @@ explicit_acl:
     severity: error
 explicit_init:
     severity: error
+explicit_self:
+    severity: error
 explicit_type_interface:
     severity: error
     excluded: [local]
@@ -159,6 +170,8 @@ force_unwrapping:
 function_default_parameter_at_end:
     severity: error
 generic_type_name:
+    severity: error
+identical_operands:
     severity: error
 implicit_getter:
     severity: error
@@ -236,6 +249,8 @@ sorted_imports:
     severity: error
 statement_position:
     severity: error
+static_operator:
+    severity: error
 superfluous_disable_command:
     severity: error
 switch_case_on_newline:
@@ -243,6 +258,8 @@ switch_case_on_newline:
 syntactic_sugar:
     severity: error
 todo:
+    severity: error
+toggle_bool:
     severity: error
 trailing_closure:
     severity: error
@@ -260,7 +277,11 @@ unused_closure_parameter:
     severity: error
 unused_enumerated:
     severity: error
+unused_import:
+    severity: error
 unused_optional_binding:
+    severity: error
+unused_private_declaration:
     severity: error
 valid_ibinspectable:
     severity: error
