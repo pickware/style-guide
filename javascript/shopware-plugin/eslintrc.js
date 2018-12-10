@@ -8,7 +8,7 @@ module.exports = {
         'ViisonCommonEventBus': false,
         'ViisonCommonShopwareVersionUtil': false,
         'ViisonCurrencyFormatter': false,
-        'ViisonCommonStatusTranslator': false,
+        'ViisonStatusTranslator': false,
         'Shopware': false,
         'timeFormat': false,
     },
