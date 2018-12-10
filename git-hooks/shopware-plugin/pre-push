@@ -39,7 +39,13 @@ if [ -f "${repo_dir}/package.json" ]; then
     fi
     if [ -d "${repo_dir}/node_modules/viison-style-guide" ]; then
         echo "NPM package 'viison-style-guide' is installed, running ESLint on all JavaScript files..."
-        node $repo_dir/node_modules/eslint/bin/eslint.js --quiet $repo_dir || exit 1
+        (
+            set -e
+            # Execute eslint in the worktree to avoid an issue with absolute directory arguments in which the directory
+            # is a symbolic link in at least eslint 3.19.0 or its dependencies.
+            cd -- "$repo_dir"
+            node ./node_modules/eslint/bin/eslint.js --quiet .
+        ) || exit 1
         echo -e "${text_green}JavaScript code style check passed.${text_reset}\n"
     fi
 fi
