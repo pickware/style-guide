@@ -316,7 +316,7 @@ class ArrayDeclarationSniff implements Sniff
             if ($fix === true) {
                 $phpcsFile->fixer->addNewlineBefore($arrayEnd);
             }
-        } else if ($tokens[$arrayEnd]['column'] !== $keywordIndentation) {
+        } elseif ($tokens[$arrayEnd]['column'] !== $keywordIndentation) {
             // Check the closing bracket is lined up under the "a" in array.
             $expected = ($keywordIndentation - 1);
             $found    = ($tokens[$arrayEnd]['column'] - 1);
@@ -370,7 +370,7 @@ class ArrayDeclarationSniff implements Sniff
 
                 if ($tokens[$nextToken]['code'] === T_ARRAY) {
                     $nextToken = $tokens[$tokens[$nextToken]['parenthesis_opener']]['parenthesis_closer'];
-                } else if ($tokens[$nextToken]['code'] === T_OPEN_SHORT_ARRAY) {
+                } elseif ($tokens[$nextToken]['code'] === T_OPEN_SHORT_ARRAY) {
                     $nextToken = $tokens[$nextToken]['bracket_closer'];
                 } else {
                     // T_CLOSURE.
@@ -554,7 +554,7 @@ class ArrayDeclarationSniff implements Sniff
 
                         $phpcsFile->fixer->addNewlineBefore($value['value']);
                     }
-                } else if ($tokens[($value['value'] - 1)]['code'] === T_WHITESPACE) {
+                } elseif ($tokens[($value['value'] - 1)]['code'] === T_WHITESPACE) {
                     $expected = $keywordIndentation + 3;
 
                     $first = $phpcsFile->findFirstOnLine(T_WHITESPACE, $value['value'], true);
@@ -728,7 +728,7 @@ class ArrayDeclarationSniff implements Sniff
 
                         $phpcsFile->fixer->replaceToken(($index['value'] - 1), str_repeat(' ', $expectedValueOffset));
                         $phpcsFile->fixer->endChangeset();
-                    } else if ($found === 0) {
+                    } elseif ($found === 0) {
                         $phpcsFile->fixer->addContent(($index['value'] - 1), str_repeat(' ', $expectedValueOffset));
                     } else {
                         $phpcsFile->fixer->replaceToken(($index['value'] - 1), str_repeat(' ', $expectedValueOffset));
