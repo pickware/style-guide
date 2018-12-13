@@ -21,7 +21,6 @@
     <!-- Include the whole PSR-2 standard, except for selected sniff messages -->
     <rule ref="PSR2">
         <exclude name="PSR2.ControlStructures.SwitchDeclaration.TerminatingComment"/>
-        <exclude name="PSR2.ControlStructures.ElseIfDeclaration"/>
     </rule>
 
     <!-- Promote the rule enforcing "elseif" over "else if" to an error, because this is a SHOULD recommendation. -->
