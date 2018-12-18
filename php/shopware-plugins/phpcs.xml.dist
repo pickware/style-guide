@@ -5,7 +5,7 @@
     <rule ref="./vendor/viison/style-guide/php/php-codesniffer-standard/VIISON" />
 
     <!-- Exclude all used, shared dependencies (add more excludes as necessary) -->
-    <!-- <exclude-pattern>*/ViisonCommon/*</exclude-pattern> -->
-    <!-- <exclude-pattern>*/ViisonPickwareCommon/*</exclude-pattern> -->
-    <!-- <exclude-pattern>*/ViisonShippingCommon/*</exclude-pattern> -->
+    <!-- <exclude-pattern>\./ViisonCommon/*</exclude-pattern> -->
+    <!-- <exclude-pattern>\./ViisonPickwareCommon/*</exclude-pattern> -->
+    <!-- <exclude-pattern>\./ViisonShippingCommon/*</exclude-pattern> -->
 </ruleset>
