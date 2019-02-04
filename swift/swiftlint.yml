@@ -257,8 +257,6 @@ switch_case_on_newline:
     severity: error
 syntactic_sugar:
     severity: error
-todo:
-    severity: error
 toggle_bool:
     severity: error
 trailing_closure:
