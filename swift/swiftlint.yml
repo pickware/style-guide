@@ -1,7 +1,7 @@
 excluded:
     - Pods
-    - CocoaCommon/Example/Pods
-    - ZvtKit/Example/Pods
+    - CocoaCommon/Example
+    - ZvtKit/Example
     - Example/Pods
     - fastlane
     - vendor # For some reason, fastlane gets installed into a vendor directory on Travis
