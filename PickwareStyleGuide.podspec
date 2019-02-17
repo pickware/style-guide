@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
     "Jannik Jochem" => "jannik.jochem@pickware.com",
     "Sven Münnich" => "sven.muennich@pickware.com"
   }
-  s.source       = { :git => "https://github.com/VIISON/style-guide.git", :branch => "fixpunkt/add-swiftlint" }
+  s.source       = { :git => "https://github.com/VIISON/style-guide.git", :branch => "master" }
   s.resources = "swift/*"
 
   s.dependency 'SwiftLint', '~> 0.28.1'
