@@ -1,4 +1,5 @@
 disabled_rules:
+    - explicit_acl
     - force_cast
     - force_try
     - force_unwrapping
