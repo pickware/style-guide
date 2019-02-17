@@ -1,6 +1,5 @@
 disabled_rules:
-  - force_unwrapping
-  - implicitly_unwrapped_optional
-  - force_cast
-  - force_try
-
+    - force_cast
+    - force_try
+    - force_unwrapping
+    - implicitly_unwrapped_optional
