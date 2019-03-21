@@ -15,5 +15,5 @@ Pod::Spec.new do |s|
     s.swift_version = '4.2'
     s.ios.deployment_target = '9.0'
     s.resources = 'swift/*'
-    s.dependency 'SwiftLint', '~> 0.30.0'
+    s.dependency 'SwiftLint', '~> 0.31.0'
 end
