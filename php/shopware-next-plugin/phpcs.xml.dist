@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<!-- Place this file in you Shopware plugin's root directory and rename it to phpcs.xml -->
+<ruleset name="ShopwareNextPlugin">
+    <!-- Use the VIISON ruleset installed by composer -->
+    <rule ref="./vendor/viison/style-guide/php/php-codesniffer-standard/VIISON" />
+</ruleset>

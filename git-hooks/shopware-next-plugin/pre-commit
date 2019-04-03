@@ -1,0 +1,95 @@
+#!/usr/bin/env bash
+#
+# Pre-commit Git hook.
+# Runs PHP CS and ESLint on all staged PHP and JavaScript files, respectively.
+# Also partially validates composer.json/composer.lock, if changed.
+
+repo_dir=$(pwd)
+
+# Define some terminal text color shortcuts
+text_red=`tput setaf 1 > /dev/null 2>&1`
+text_green=`tput setaf 2 > /dev/null 2>&1`
+text_reset=`tput sgr0 > /dev/null 2>&1`
+
+# Check for any staged files
+changedFiles=($(git diff --staged --name-only HEAD))
+numChangedFiles="${#changedFiles[@]}"
+if [[ $numChangedFiles == 0 ]]; then
+    echo "No code style to check."
+    exit 0
+fi
+
+codeStyleErrors=0
+
+# Run PHP code style check (ignoring warnings)
+if [ ! -d "${repo_dir}/vendor/viison/style-guide" ]; then
+    echo "${text_red}Cannot run PHP code style check, because the 'viison/style-guide' dependency appears to not be installed. Please run 'composer install' inside $(realpath ${repo_dir}).${text_reset}"
+    exit 1
+fi
+if [ ! -f "${repo_dir}/phpcs.xml" ]; then
+    echo "${text_red}Cannot run PHP code style check, because a 'phpcs.xml' was not found in $(realpath ${repo_dir}).${text_reset}"
+    exit 1
+fi
+echo -e "\nComposer package 'viison/style-guide' is installed, will run PHP Code Sniffer on staged PHP files..."
+
+did_composer_validate=0
+for i in "${changedFiles[@]}"; do
+    if [[ $i == *.php ]] && [ -f $i ]; then
+        "${repo_dir}/vendor/bin/phpcs" --warning-severity=0 $i
+        phpcsResult=$?
+        if [ ${phpcsResult} -ne 0 ]; then
+            # File has code style issues
+            ((codeStyleErrors++))
+        fi
+    fi
+    # If a composer-related file changed, run `composer validate`.
+    if ( [[ "$i" == composer.json ]] || [[ "$i" == composer.lock ]] ) && [[ "$did_composer_validate" == 0 ]]; then
+        if ! type composer &> /dev/null
+        then
+            printf 'ERROR: Cannot validate changes to %q.\n' "$i" >&2
+            printf 'ERROR: No composer binary has been found.\n' >&2
+            exit 1
+        fi
+        # Capture composer validate output and only display it if validation
+        # failed, as it is quite verbose.
+        set +e
+        composer_validate_output="$(LC_ALL=C composer validate --no-check-all --no-check-publish 2>&1)"
+        composer_validate_exit="$?"
+        set -e
+        if [[ "$composer_validate_exit" != 0 ]]; then
+            printf 'composer validate: %s\n' "$composer_validate_output" >&2
+            ((codeStyleErrors++))
+        fi
+        composer_validate_output=
+        did_composer_validate=1
+    fi
+done
+
+# Check whether we should run ESLint
+if [ -f "${repo_dir}/package.json" ]; then
+    if [ ! -d "${repo_dir}/node_modules" ]; then
+        echo "${text_red}package.json found, but node_modules is missing. Please run 'yarn install' inside $(realpath ${repo_dir}).${text_reset}"
+        exit 1
+    fi
+    if [ -d "${repo_dir}/node_modules/viison-style-guide" ]; then
+        echo "NPM package 'viison-style-guide' is installed, running ESLint on staged JavaScript files..."
+        for i in "${changedFiles[@]}"; do
+            if [[ $i == *.js ]] && [ -f $i ]; then
+                node $repo_dir/node_modules/eslint/bin/eslint.js --quiet $i
+                eslintResult=$?
+                if [ ${eslintResult} -ne 0 ]; then
+                    # File has code style issues
+                    ((codeStyleErrors++))
+                fi
+            fi
+        done
+    fi
+fi
+
+# Evaluate code style check results
+if [[ ${codeStyleErrors} == 0 ]]; then
+    echo -e "\n${text_green}Code style check passed.${text_reset}\n"
+else
+    echo -e "${text_red}Code style errors were found. Please fix them and commit again.${text_reset}\n"
+    exit 1
+fi
