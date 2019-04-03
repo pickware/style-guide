@@ -14,7 +14,8 @@
     },
     "extra": {
         "available-viison-git-hooks": {
-            "shopware-plugin": "git-hooks/shopware-plugin/"
+            "shopware-plugin": "git-hooks/shopware-plugin/",
+            "shopware-next-plugin": "git-hooks/shopware-next-plugin/"
         }
     },
     "scripts": {
