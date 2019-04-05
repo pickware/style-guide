@@ -1,26 +1,8 @@
 /* eslint-disable quote-props */
 
+/**
+ * @deprecated use ../shopware-plugin.js instead.
+ */
 module.exports = {
-    'extends': '../legacy/eslintrc.js',
-    'globals': {
-        'Ext': false,
-        'ViisonCommonApp': false,
-        'ViisonCommonEventBus': false,
-        'ViisonCommonShopwareVersionUtil': false,
-        'ViisonCurrencyFormatter': false,
-        'ViisonStatusTranslator': false,
-        'Shopware': false,
-        'timeFormat': false,
-    },
-    rules: {
-        // Downgrade max-len to warning since this is impractical with ExtJS's protracted class names
-        'max-len': ['warn', 120],
-        'consistent-this': ['warn', 'actuallyWeDontAllowThisAtAll'],
-        'no-console': 'error',
-        'no-restricted-properties': ['error', {
-            object: 'Ext',
-            property: 'bind',
-            message: 'Please use Function.prototype.bind() instead.',
-        }],
-    },
+    'extends': require.resolve('../shopware-plugin.js'),
 };

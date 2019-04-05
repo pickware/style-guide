@@ -1,27 +1,8 @@
 /* eslint-disable quote-props */
 
+/**
+ * @deprecated use ../ecmascript-5.js instead
+ */
 module.exports = {
-    'extends': 'airbnb-base/legacy',
-    'rules': {
-        'no-console': 'off',
-        'max-len': ['error', 120],
-        'no-param-reassign': 'off',
-        'comma-dangle': ['error', {
-            arrays: 'always-multiline',
-            objects: 'always-multiline',
-            imports: 'always-multiline',
-            exports: 'always-multiline',
-            functions: 'never',
-        }],
-        'class-methods-use-this': 'off',
-        'func-names': 'off',
-        'newline-before-return': ['error'],
-        'indent': ['error', 4, { 'SwitchCase': 1 }],
-        'no-use-before-define': ['error', { 'functions': false }],
-        'vars-on-top': 'off',
-        'multiline-ternary': ['error', 'never'],
-        'curly': ['error', 'all'],
-        'brace-style': ['error', '1tbs', { 'allowSingleLine': false }],
-        'no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 1 }],
-    },
+    'extends': require.resolve('../ecmascript-5.js'),
 };
