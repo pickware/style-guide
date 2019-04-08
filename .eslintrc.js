@@ -1,3 +1,3 @@
 module.exports = {
-    extends: "./javascript/shopware-plugin/eslintrc.js",
+    extends: './javascript/modern.js',
 };
