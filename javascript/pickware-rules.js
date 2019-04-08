@@ -18,7 +18,10 @@ module.exports = {
         'multiline-ternary': ['error', 'never'],
         'newline-before-return': ['error'],
         'no-console': 'off',
-        'no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 1 }],
+        'no-multiple-empty-lines': ['error', {
+            max: 1,
+            maxEOF: 1,
+        }],
         'no-param-reassign': 'off',
         'no-use-before-define': ['error', { 'functions': false }],
         'prefer-destructuring': 'off',
