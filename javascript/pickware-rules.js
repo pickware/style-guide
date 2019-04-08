@@ -24,6 +24,18 @@ module.exports = {
         }],
         'no-param-reassign': 'off',
         'no-use-before-define': ['error', { 'functions': false }],
+        'object-curly-newline': ['error', {
+            ObjectExpression: {
+                multiline: true,
+                minProperties: 2,
+                consistent: true,
+            },
+            ImportDeclaration: {
+                multiline: true,
+                minProperties: 100,
+                consistent: true,
+            },
+        }],
         'prefer-destructuring': 'off',
     },
 };
