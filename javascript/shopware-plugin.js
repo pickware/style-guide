@@ -22,5 +22,12 @@ module.exports = {
             property: 'bind',
             message: 'Please use Function.prototype.bind() instead.',
         }],
+        'object-curly-newline': ['error', {
+            ObjectExpression: {
+                multiline: true,
+                minProperties: 100,
+                consistent: true,
+            },
+        }],
     },
 };
