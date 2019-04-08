@@ -1,10 +1,10 @@
 disabled_rules:
-    - explicit_acl
-    - force_cast
-    - force_try
-    - force_unwrapping
-    - implicitly_unwrapped_optional
+  - explicit_acl
+  - force_cast
+  - force_try
+  - force_unwrapping
+  - implicitly_unwrapped_optional
 opt_in_rules:
-    - nimble_operator
+  - nimble_operator
 nimble_operator:
-    severity: error
+  severity: error
