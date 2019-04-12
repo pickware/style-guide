@@ -13,4 +13,7 @@ module.exports = {
     'rules': {
         'no-console': 'error',
     },
+    parserOptions: {
+        ecmaVersion: 2018,
+    },
 };
