@@ -9,11 +9,12 @@ module.exports = {
         'airbnb-base/rules/variables',
         'airbnb-base/rules/es6',
         require.resolve('./pickware-rules.js'),
+        require.resolve('./pickware-modern-rules.js'),
     ],
     'rules': {
         'no-console': 'error',
     },
-    parserOptions: {
+    'parserOptions': {
         ecmaVersion: 2018,
     },
 };
