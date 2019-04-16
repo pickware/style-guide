@@ -5,10 +5,11 @@ module.exports = {
         'promise',
     ],
     'rules': {
-        'promise/always-return': 'error',
+        // See https://github.com/xjamundx/eslint-plugin-promise#rules
+        'promise/catch-or-return': 'error',
         'promise/no-return-wrap': 'error',
         'promise/param-names': 'error',
-        'promise/catch-or-return': 'error',
+        'promise/always-return': 'error',
         'promise/no-native': 'off',
         'promise/no-nesting': 'error',
         'promise/no-promise-in-callback': 'error',

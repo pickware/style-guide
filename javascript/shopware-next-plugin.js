@@ -13,6 +13,10 @@ module.exports = {
     ],
     'rules': {
         'no-console': 'error',
+        // Disable rules that prohibit manual callback/promise interoparability code until we have a build process for
+        // Shopware plugins which can ship an interoperability library (e.g. pify).
+        'promise/no-callback-in-promise': 'off',
+        'promise/avoid-new': 'off',
     },
     'parserOptions': {
         ecmaVersion: 2018,
