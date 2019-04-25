@@ -7,6 +7,7 @@ excluded:
   - Frameworks/**/Tests
   - fastlane
   - vendor # For some reason, fastlane gets installed into a vendor directory on Travis
+
 disabled_rules:
   - cyclomatic_complexity
   - file_length
@@ -19,6 +20,7 @@ disabled_rules:
   - shorthand_operator
   - type_body_length
   - unneeded_break_in_switch
+
 opt_in_rules:
   - anyobject_protocol
   - array_init
@@ -81,6 +83,12 @@ opt_in_rules:
   - vertical_whitespace_closing_braces
   - vertical_whitespace_opening_braces
   - yoda_condition
+
+# Custom rule configurations
+explicit_type_interface:
+  severity: error
+  excluded:
+    - local
 identifier_name:
   min_length:
     warning: 0
@@ -91,12 +99,29 @@ identifier_name:
 line_length:
   warning: 120
   error: 65535
+modifier_order:
+  severity: error
+  preferred_modifier_order:
+    - override
+    - acl
+    - setterACL
+    - final
+    - required
+    - convenience
+    - dynamic
+    - lazy
+    - owned
+    - mutators
+    - typeMethods
+multiline_arguments:
+  severity: error
+  first_argument_location: next_line
 switch_case_alignment:
+  severity: error
   indented_cases: true
-  severity: error
 trailing_comma:
-  mandatory_comma: true
   severity: error
+  mandatory_comma: true
 type_name:
   min_length:
     warning: 0
@@ -104,6 +129,14 @@ type_name:
   max_length:
     warning: 65535
     error: 65535
+generic_type_name:
+  min_length:
+    warning: 0
+    error: 0
+  max_length:
+    warning: 65535
+    error: 65535
+
 # Make everything else an error
 anyobject_protocol:
   severity: error
@@ -167,9 +200,6 @@ explicit_init:
   severity: error
 explicit_self:
   severity: error
-explicit_type_interface:
-  severity: error
-  excluded: [local]
 fallthrough:
   severity: error
 first_where:
@@ -180,13 +210,6 @@ force_unwrapping:
   severity: error
 function_default_parameter_at_end:
   severity: error
-generic_type_name:
-  min_length:
-    warning: 0
-    error: 0
-  max_length:
-    warning: 65535
-    error: 65535
 identical_operands:
   severity: error
 implicit_getter:
@@ -213,23 +236,6 @@ literal_expression_end_indentation:
   severity: error
 mark:
   severity: error
-modifier_order:
-  severity: error
-  preferred_modifier_order:
-    - override
-    - acl
-    - setterACL
-    - final
-    - required
-    - convenience
-    - dynamic
-    - lazy
-    - owned
-    - mutators
-    - typeMethods
-multiline_arguments:
-  severity: error
-  first_argument_location: next_line
 multiline_literal_brackets:
   severity: error
 multiline_parameters:
