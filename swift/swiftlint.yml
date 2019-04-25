@@ -84,6 +84,15 @@ opt_in_rules:
   - vertical_whitespace_opening_braces
   - yoda_condition
 
+custom_rules:
+  no_thousands_seperators:
+    severity: error
+    name: "No thousands separators"
+    message: "Numbers should not contain underscores as thousand separators."
+    regex: "(\\d+(_+\\d+)+)"
+    match_kinds:
+      - number
+
 # Custom rule configurations
 explicit_type_interface:
   severity: error
