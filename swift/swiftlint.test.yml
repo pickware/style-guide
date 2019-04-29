@@ -4,7 +4,9 @@ disabled_rules:
   - force_try
   - force_unwrapping
   - implicitly_unwrapped_optional
+
 opt_in_rules:
   - nimble_operator
+
 nimble_operator:
   severity: error
