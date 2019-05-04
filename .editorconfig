@@ -12,3 +12,6 @@ max_line_length = null
 
 [{*.yaml, *.yml}]
 indent_size = 2
+
+[*.pbxproj]
+indent_style = tab
