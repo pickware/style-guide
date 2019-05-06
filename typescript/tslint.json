@@ -1,0 +1,43 @@
+ {
+    "extends": ["tslint:recommended", "tslint-immutable", "typestrict"],
+    "jsRules": {
+        "quotemark": false
+    },
+    "rules": {
+        "interface-name": {
+            "severity": "error",
+            "options": "never-prefix"
+        },
+        "max-classes-per-file": false,
+        "max-line-length": false,
+        "no-console": false,
+        "no-delete": true,
+        "no-expression-statement": {
+            "options": {
+                "ignore-prefix": [
+                    "console.",
+                    "debug(",
+                    "describe(",
+                    "expect(",
+                    "fail(",
+                    "it(",
+                    "message(",
+                    "mutable",
+                    "super(",
+                    "this.mutable",
+                    "warn("
+                ]
+            }
+        },
+        "no-let": [true, { "ignore-prefix": "mutable" }],
+        "no-method-signature": true,
+        "no-object-mutation": [true, { "ignore-prefix": ["mutable", "this.mutable"] }],
+        "no-parameter-reassignment": true,
+        "no-var-keyword": true,
+        "no-var-requires": true,
+        "quotemark": false,
+        "readonly-array": [true, { "ignore-prefix": "mutable" }],
+        "readonly-keyword": [true, { "ignore-prefix": "mutable" }],
+        "variable-name": [true, "ban-keywords", "check-format", "allow-pascal-case", "allow-leading-underscore"]
+    }
+}
