@@ -7,6 +7,12 @@ disabled_rules:
 
 opt_in_rules:
   - nimble_operator
+  - quick_discouraged_focused_test
+  - quick_discouraged_pending_test
 
 nimble_operator:
+  severity: error
+quick_discouraged_focused_test:
+  severity: error
+quick_discouraged_pending_test:
   severity: error
