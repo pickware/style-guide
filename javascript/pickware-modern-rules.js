@@ -5,6 +5,13 @@ module.exports = {
         'promise',
     ],
     'rules': {
+        'comma-dangle': ['error', {
+            arrays: 'always-multiline',
+            objects: 'always-multiline',
+            imports: 'always-multiline',
+            exports: 'always-multiline',
+            functions: 'always-multiline',
+        }],
         // See https://github.com/xjamundx/eslint-plugin-promise#rules
         'promise/catch-or-return': 'error',
         'promise/no-return-wrap': 'error',
