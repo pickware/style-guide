@@ -1,4 +1,4 @@
- {
+{
     "extends": ["tslint:recommended", "tslint-immutable", "typestrict"],
     "jsRules": {
         "quotemark": false
@@ -9,9 +9,12 @@
             "options": "never-prefix"
         },
         "max-classes-per-file": false,
+        // Handled by eslint/prettier:
         "max-line-length": false,
         "no-console": false,
         "no-delete": true,
+        // Handled in eslint @typescript-eslint/no-empty-interface:
+        "no-empty-interface": false,
         "no-expression-statement": {
             "options": {
                 "ignore-prefix": [
@@ -23,15 +26,20 @@
                     "it(",
                     "message(",
                     "mutable",
+                    "sideEffect",
                     "super(",
                     "this.mutable",
-                    "warn("
+                    "this.sideEffect",
+                    "warn(",
+                    "yield "
                 ]
             }
         },
         "no-let": [true, { "ignore-prefix": "mutable" }],
         "no-method-signature": true,
-        "no-object-mutation": [true, { "ignore-prefix": ["mutable", "this.mutable"] }],
+        "no-object-mutation": {
+            "options": { "ignore-prefix": ["mutable", "this.mutable", "process.exitCode"] }
+        },
         "no-parameter-reassignment": true,
         "no-var-keyword": true,
         "no-var-requires": true,
