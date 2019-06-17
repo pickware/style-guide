@@ -1,4 +1,5 @@
 /vendor
+/dist
 
 # Contrary to ESLint default behavior, we want .eslintrc.js and other JavaScript dotfiles to be linted as well
 !.*

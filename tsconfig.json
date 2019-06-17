@@ -1,0 +1,15 @@
+{
+    // TypeScript config for tooling inside style-guide.
+    // Do not extend this config file in projects which use style-guide.
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "outDir": "./dist/",
+        "rootDir": "./",
+        "sourceMap": true,
+        "declaration": true,
+        "declarationMap": true,
+        "strict": true,
+        "esModuleInterop": true
+    }
+}
