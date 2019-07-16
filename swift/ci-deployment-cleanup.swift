@@ -4,7 +4,7 @@ import Foundation
 
 func removeIfExists(atPath path: String) throws {
 	if FileManager.default.fileExists(atPath: path) {
-		print("remove \(path)")
+		print("Removing \(path)")
 		try FileManager.default.removeItem(atPath: path)
 	}
 }
