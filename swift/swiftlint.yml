@@ -83,8 +83,8 @@ opt_in_rules:
 custom_rules:
   no_thousands_seperators:
     severity: error
-    name: "No thousands separators"
-    message: "Numbers should not contain underscores as thousand separators."
+    name: 'No thousands separators'
+    message: 'Numbers should not contain underscores as thousand separators.'
     regex: "(\\d+(_+\\d+)+)"
     match_kinds:
       - number
