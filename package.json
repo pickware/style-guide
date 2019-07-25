@@ -13,14 +13,22 @@
     },
     "scripts": {
         "eslint": "eslint .",
-        "eslint:fix": "eslint --fix ."
+        "eslint:fix": "eslint --fix .",
+        "lint-structured-files": "./structured-files/lint-structured-files.sh --ignore-path .gitignore --check",
+        "lint-structured-files:fix": "./structured-files/lint-structured-files.sh  --ignore-path .gitignore --write"
     },
     "dependencies": {
         "eslint": "^5.16.0",
         "eslint-config-airbnb-base": "^13.1.0",
         "eslint-plugin-import": "^2.16.0",
-        "eslint-plugin-promise": "^4.1.1"
+        "eslint-plugin-promise": "^4.1.1",
+        "prettier": "^1.18.2",
+        "realpath": "^1.1.0"
     },
+    "bin": {
+        "lint-structured-files": "./structured-files/lint-structured-files.sh"
+    },
+    "prettier": "./structured-files/.prettierrc.json",
     "private": true,
     "homepage": "https://github.com/VIISON/style-guide#readme"
 }
