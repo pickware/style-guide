@@ -27,5 +27,17 @@ module.exports = {
         'promise/valid-params': 'error',
         'promise/prefer-await-to-then': 'error',
         'promise/prefer-await-to-callbacks': 'error',
+
+        // Overwrite airbnb-base:
+        'no-unused-vars': ['error', {
+            // Added: Allow keeping unused variables when prefixed with an underscore.
+            // Intended for unused arguments that precede used ones in an argument list.
+            argsIgnorePattern: '^_',
+            // Changed: Now, all unused arguments must be removed or prefixed.
+            args: 'all',
+            // Copied from airbnb-base:
+            vars: 'all',
+            ignoreRestSiblings: true,
+        }],
     },
 };
