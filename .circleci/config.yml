@@ -1,0 +1,95 @@
+---
+version: 2.1
+
+executors:
+  php_56_node:
+    docker:
+      - image: circleci/php:5.6-cli-node
+
+jobs:
+  setup:
+    executor: php_56_node
+    steps:
+      - checkout
+      # Composer
+      - restore_cache:
+          keys:
+            - composer-cache-v1-{{ .Branch }}-{{ checksum "composer.lock" }}
+            - composer-cache-v1-{{ .Branch }}-
+            - composer-cache-v1-
+      - run:
+          name: Installing composer dependencies
+          command: composer install
+      - save_cache:
+          key: composer-cache-v1-{{ .Branch }}-{{ checksum "composer.lock" }}
+          paths:
+            - vendor
+      # npm
+      - restore_cache:
+          keys:
+            - npm-cache-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - npm-cache-v1-{{ .Branch }}-
+            - npm-cache-v1-
+      - run:
+          name: Installing npm dependencies
+          command: npm install
+      - save_cache:
+          key: npm-cache-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - project
+
+  lint_javascript:
+    executor: php_56_node
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: Linting JavaScript using ESLint
+          command: npm run eslint
+
+  lint_php:
+    executor: php_56_node
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: Linting PHP syntax
+          command: composer phplint
+      - run:
+          name: Linting PHP using PHP_CodeSniffer
+          command: composer phpcs
+
+  lint_structured_files:
+    executor: php_56_node
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: Linting structured files using Prettier
+          command: npm run lint-structured-files
+
+workflows:
+  version: 2
+
+  git_push:
+    jobs:
+      - setup
+      - lint_javascript:
+          requires:
+            - setup
+      - lint_php:
+          requires:
+            - setup
+      - lint_structured_files:
+          requires:
+            - setup
+
+experimental:
+  notify:
+    branches:
+      only:
+        - master
