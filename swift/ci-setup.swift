@@ -3,9 +3,9 @@
 import Foundation
 
 // Promote SwiftLint's `todo` rule to `error` severity in a new config `.swiftlint-ci.yml`
-let swiftLintConfigUrl = URL(fileURLWithPath: ".swiftlint.yml")
-guard var swiftLintConfigContents = try String(bytes: Data(contentsOf: swiftLintConfigUrl), encoding: .utf8) else {
-    fatalError("Failed to read file at path '\(swiftLintConfigUrl.relativeString)'.")
+public let kSwiftLintConfigUrl = URL(fileURLWithPath: ".swiftlint.yml")
+guard var swiftLintConfigContents = try String(bytes: Data(contentsOf: kSwiftLintConfigUrl), encoding: .utf8) else {
+    fatalError("Failed to read file at path '\(kSwiftLintConfigUrl.relativeString)'.")
 }
 swiftLintConfigContents += """
 todo:
@@ -15,12 +15,12 @@ todo:
 try swiftLintConfigContents.write(to: URL(fileURLWithPath: ".swiftlint-ci.yml"), atomically: false, encoding: .utf8)
 
 // Ignore all frameworks when linting
-let frameworksDirectoryPath = "./Frameworks"
-if FileManager.default.fileExists(atPath: frameworksDirectoryPath) {
+public let kFrameworksDirectoryPath = "./Frameworks"
+if FileManager.default.fileExists(atPath: kFrameworksDirectoryPath) {
     // Find all sub directories
-    let frameworksDirectoryUrl = URL(fileURLWithPath: frameworksDirectoryPath)
+    let frameworksDirectoryUrl = URL(fileURLWithPath: kFrameworksDirectoryPath)
     let subDirectoryNames = try FileManager.default
-        .contentsOfDirectory(atPath: frameworksDirectoryPath)
+        .contentsOfDirectory(atPath: kFrameworksDirectoryPath)
         .filter {
             var isDirectory = ObjCBool(false)
             let exists = FileManager.default.fileExists(
@@ -37,7 +37,7 @@ if FileManager.default.fileExists(atPath: frameworksDirectoryPath) {
         .joined(separator: "\n")
     let configContents = "excluded:\n\(excludeList)\n"
     try configContents.write(
-        to: URL(fileURLWithPath: frameworksDirectoryPath).appendingPathComponent(".swiftlint.yml"),
+        to: URL(fileURLWithPath: kFrameworksDirectoryPath).appendingPathComponent(".swiftlint.yml"),
         atomically: false,
         encoding: .utf8
     )
