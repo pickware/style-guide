@@ -108,9 +108,9 @@ line_length:
 modifier_order:
   severity: error
   preferred_modifier_order:
-    - override
     - acl
     - setterACL
+    - override
     - final
     - required
     - convenience
