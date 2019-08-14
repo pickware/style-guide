@@ -1,5 +1,8 @@
 #!/usr/bin/swift
 
+// Disable some swiftlint rules, which are too annoying when programming for the CLI
+// swiftlint:disable explicit_acl prefixed_toplevel_constant
+
 import Foundation
 
 // Promote SwiftLint's `todo` rule to `error` severity in a new config `.swiftlint-ci.yml`

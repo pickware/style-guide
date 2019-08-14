@@ -5,6 +5,11 @@ executors:
   php_56_node:
     docker:
       - image: circleci/php:5.6-cli-node
+  xcode_10_2:
+    macos:
+      xcode: '10.2.0'
+    environment:
+      BUNDLE_PATH: ~/bundler
 
 jobs:
   setup:
@@ -72,6 +77,35 @@ jobs:
           name: Linting structured files using Prettier
           command: npm run lint-structured-files
 
+  lint_swift:
+    executor: xcode_10_2
+    steps:
+      - checkout
+      # Bundler
+      - restore_cache:
+          keys:
+            - bundler-cache-v1-{{ .Branch }}-{{ checksum "./swift/TestRunner/Gemfile.lock" }}
+            - bundler-cache-v1-{{ .Branch }}-
+            - bundler-cache-v1-
+      - run:
+          name: Installing bundler dependencies
+          command: cd "./swift/TestRunner" && bundle install --jobs=4 --retry=3
+      - save_cache:
+          key: bundler-cache-v1-{{ .Branch }}-{{ checksum "./swift/TestRunner/Gemfile.lock" }}
+          paths:
+            - $BUNDLE_PATH
+      # CocoaPods
+      - run:
+          name: Using CircleCI CocoaPods mirror
+          command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
+      - run:
+          name: Seting up working directory
+          command: cd "./swift/TestRunner" && bundle exec pod install
+      # SwiftLint
+      - run:
+          name: Linting Swift using SwiftLint
+          command: ./swift/TestRunner/Pods/SwiftLint/swiftlint lint --config swiftlint.yml "./swift"
+
 workflows:
   version: 2
 
@@ -87,6 +121,7 @@ workflows:
       - lint_structured_files:
           requires:
             - setup
+      - lint_swift
 
 experimental:
   notify:

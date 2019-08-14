@@ -1,5 +1,8 @@
 #!/usr/bin/swift
 
+// Disable some swiftlint rules, which are too annoying when programming for the CLI
+// swiftlint:disable explicit_acl
+
 import Foundation
 
 func removeIfExists(atPath path: String) throws {

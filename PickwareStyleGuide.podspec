@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
     s.source = { :git => 'https://github.com/VIISON/style-guide.git', :branch => 'master' }
 
     # Build settings
-    s.swift_version = '4.2'
+    s.swift_version = '5.0'
     s.ios.deployment_target = '9.0'
     s.osx.deployment_target = '10.14'
     s.resources = 'swift/*'
