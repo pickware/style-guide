@@ -17,6 +17,7 @@ custom_rules:
     message: 'Classes extending `QuickSpec` must have `public` ACL.'
     regex: "^\\s?internal class [^\\s]+Spec\\: QuickSpec \\{"
 
+# Rule configuration
 nimble_operator:
   severity: error
 quick_discouraged_focused_test:

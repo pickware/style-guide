@@ -90,60 +90,7 @@ custom_rules:
     match_kinds:
       - number
 
-# Custom rule configurations
-explicit_type_interface:
-  severity: error
-  excluded:
-    - local
-identifier_name:
-  min_length:
-    warning: 0
-    error: 0
-  max_length:
-    warning: 65535
-    error: 65535
-line_length:
-  warning: 120
-  error: 65535
-modifier_order:
-  severity: error
-  preferred_modifier_order:
-    - acl
-    - setterACL
-    - override
-    - final
-    - required
-    - convenience
-    - dynamic
-    - lazy
-    - owned
-    - mutators
-    - typeMethods
-multiline_arguments:
-  severity: error
-  first_argument_location: next_line
-switch_case_alignment:
-  severity: error
-  indented_cases: true
-trailing_comma:
-  severity: error
-  mandatory_comma: true
-type_name:
-  min_length:
-    warning: 0
-    error: 0
-  max_length:
-    warning: 65535
-    error: 65535
-generic_type_name:
-  min_length:
-    warning: 0
-    error: 0
-  max_length:
-    warning: 65535
-    error: 65535
-
-# Make everything else an error
+# Rule configuration
 anyobject_protocol:
   severity: error
 array_init:
@@ -206,6 +153,10 @@ explicit_init:
   severity: error
 explicit_self:
   severity: error
+explicit_type_interface:
+  severity: error
+  excluded:
+    - local
 fallthrough:
   severity: error
 first_where:
@@ -216,8 +167,22 @@ force_unwrapping:
   severity: error
 function_default_parameter_at_end:
   severity: error
+generic_type_name:
+  min_length:
+    warning: 0
+    error: 0
+  max_length:
+    warning: 65535
+    error: 65535
 identical_operands:
   severity: error
+identifier_name:
+  min_length:
+    warning: 0
+    error: 0
+  max_length:
+    warning: 65535
+    error: 65535
 implicit_getter:
   severity: error
 implicit_return:
@@ -238,10 +203,30 @@ legacy_constructor:
   severity: error
 legacy_nsgeometry_functions:
   severity: error
+line_length:
+  warning: 120
+  error: 65535
 literal_expression_end_indentation:
   severity: error
 mark:
   severity: error
+modifier_order:
+  severity: error
+  preferred_modifier_order:
+    - acl
+    - setterACL
+    - override
+    - final
+    - required
+    - convenience
+    - dynamic
+    - lazy
+    - owned
+    - mutators
+    - typeMethods
+multiline_arguments:
+  severity: error
+  first_argument_location: next_line
 multiline_literal_brackets:
   severity: error
 multiline_parameters:
@@ -300,6 +285,9 @@ static_operator:
   severity: error
 superfluous_disable_command:
   severity: error
+switch_case_alignment:
+  severity: error
+  indented_cases: true
 switch_case_on_newline:
   severity: error
 syntactic_sugar:
@@ -308,12 +296,22 @@ toggle_bool:
   severity: error
 trailing_closure:
   severity: error
+trailing_comma:
+  severity: error
+  mandatory_comma: true
 trailing_newline:
   severity: error
 trailing_semicolon:
   severity: error
 trailing_whitespace:
   severity: error
+type_name:
+  min_length:
+    warning: 0
+    error: 0
+  max_length:
+    warning: 65535
+    error: 65535
 unavailable_function:
   severity: error
 unneeded_parentheses_in_closure_argument:
@@ -322,9 +320,9 @@ unused_closure_parameter:
   severity: error
 unused_control_flow_label:
   severity: error
-unused_enumerated:
-  severity: error
 unused_declaration:
+  severity: error
+unused_enumerated:
   severity: error
 unused_import:
   severity: error
