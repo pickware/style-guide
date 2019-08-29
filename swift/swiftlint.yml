@@ -93,6 +93,14 @@ custom_rules:
     regex: "(\\d+(_+\\d+)+)"
     match_kinds:
       - number
+  no_public_or_open_access_level:
+    severity: error
+    name: 'No public or open access level'
+    message: 'Entities should use neither `public` nor `open` access level. Use `internal` instead.'
+    # Please note that the following expression does not match any classes that extend `QuickSpec` nor functions named
+    # `spec` that override their parent implementation to avoid conflicts with rule `quick_spec_class_acl` defined
+    # in `swiftlint.test.yml`
+    regex: "\\s?(public|open)(\\s((((private|fileprivate|internal)\\([^\\(\\)]+\\)))|override(?!\\sfunc\\sspec\\(\\))|final|required|convenience|dynamic|lazy|weak|mutating))*\\s(class(?!\\s[^\\s]+Spec\\:\\sQuickSpec)|struct|enum|protocol|extension|func|var|let)\\s"
 
 # Rule configuration
 anyobject_protocol:
