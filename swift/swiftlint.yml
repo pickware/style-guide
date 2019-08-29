@@ -1,8 +1,12 @@
 excluded:
-  - Pods
-  - Example/Pods
-  - fastlane
-  - vendor # For some reason, fastlane gets installed into a vendor directory on Travis
+  - 'fastlane'
+  - 'Pods'
+  # In library projects, pods are installed in the `Example` directory
+  - 'Example/Pods'
+  - 'Frameworks/*/Frameworks'
+  - 'Frameworks/*/Tests'
+  # On Travis CI bundler dependencies are installed in the working directory
+  - 'vendor'
 
 disabled_rules:
   - cyclomatic_complexity
