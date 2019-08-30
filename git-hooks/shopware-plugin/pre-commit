@@ -63,6 +63,12 @@ for i in "${changedFiles[@]}"; do
         composer_validate_output=
         did_composer_validate=1
     fi
+
+    # Check for normalized composer.json
+    if [[ $i == *composer.json ]]; then
+        echo "Checking if $i is normalized."
+        composer normalize "$i" --dry-run --indent-size 4 --indent-style space || exit 1
+    fi
 done
 
 # Check whether we should run ESLint
