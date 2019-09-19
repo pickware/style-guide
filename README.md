@@ -1,4 +1,4 @@
-# Pickware style-guide [![CircleCI](https://circleci.com/gh/VIISON/style-guide.svg?style=svg)](https://circleci.com/gh/VIISON/style-guide)
+# Pickware style-guide [![CircleCI](https://circleci.com/gh/pickware/style-guide.svg?style=svg)](https://circleci.com/gh/pickware/style-guide)
 
 This repository describes some of our processes and standards.
 
