@@ -19,7 +19,6 @@ disabled_rules:
   - private_over_fileprivate
   - shorthand_operator
   - type_body_length
-  - unneeded_break_in_switch
 
 opt_in_rules:
   - anyobject_protocol
@@ -76,6 +75,7 @@ opt_in_rules:
   - trailing_closure
   - trailing_comma
   - unavailable_function
+  - unneeded_break_in_switch
   - unneeded_parentheses_in_closure_argument
   - untyped_error_in_catch
   - unused_declaration
@@ -325,6 +325,8 @@ type_name:
     warning: 65535
     error: 65535
 unavailable_function:
+  severity: error
+unneeded_break_in_switch:
   severity: error
 unneeded_parentheses_in_closure_argument:
   severity: error
