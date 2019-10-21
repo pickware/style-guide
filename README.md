@@ -1,4 +1,6 @@
-# Pickware style-guide [![CircleCI](https://circleci.com/gh/pickware/style-guide.svg?style=svg)](https://circleci.com/gh/pickware/style-guide)
+# Pickware style-guide
+
+[![Build Status](https://github.com/pickware/style-guide/workflows/CI/badge.svg)](https://github.com/pickware/style-guide/actions?workflow=CI)
 
 This repository describes some of our processes and standards.
 

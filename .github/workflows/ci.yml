@@ -1,0 +1,56 @@
+name: CI
+on: [push]
+env:
+  BUNDLE_PATH: ~/bundler
+  FASTLANE_SKIP_DOCS: true
+  FASTLANE_SKIP_UPDATE_CHECK: true
+  XCODE_VERSION: '11.1'
+jobs:
+  lint_php:
+    if: "!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up PHP and composer
+        uses: shivammathur/setup-php@1.4.3
+        with:
+          php-version: '7.2'
+      - name: Lint PHP syntax
+        run: composer phplint
+      - name: Instal composer dependencies
+        run: composer install
+      - name: Lint PHP code using PHP_CodeSniffer
+        run: composer phpcs
+  lint_javascript:
+    if: "!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install npm dependencies
+        run: npm install
+      - name: Lint JavaScript code using ESLint
+        run: npm run eslint
+  lint_structured_files:
+    if: "!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install npm dependencies
+        run: npm install
+      - name: Lint structured files using Prettier
+        run: npm run lint-structured-files
+  lint_swift:
+    if: "!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: macOS-10.14
+    steps:
+      - uses: actions/checkout@v1
+      - name: Select Xcode version
+        run: |
+          xcversion select "$XCODE_VERSION"
+          xcodebuild -version
+      - name: Install bundler dependencies
+        run: cd "./swift/TestRunner" && bundle install --jobs=4 --retry=3
+      - name: Set up working directory
+        run: cd "./swift/TestRunner" && bundle exec pod install
+      - name: Lint Swift code using SwiftLint
+        run: ./swift/TestRunner/Pods/SwiftLint/swiftlint lint --config swiftlint.yml "./swift"
