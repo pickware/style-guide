@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = '9.0'
     s.osx.deployment_target = '10.14'
     s.preserve_paths = 'swift/*.{swift,yml}'
-    s.dependency 'SwiftLint', '~> 0.35.0'
+    s.dependency 'SwiftLint', '~> 0.36.0'
 end
