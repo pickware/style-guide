@@ -32,6 +32,7 @@ opt_in_rules:
   - contains_over_filter_count
   - contains_over_filter_is_empty
   - contains_over_first_not_nil
+  - contains_over_range_nil_comparison
   - convenience_type
   - discouraged_object_literal
   - discouraged_optional_boolean
@@ -47,6 +48,7 @@ opt_in_rules:
   - fallthrough
   - fatal_error_message
   - first_where
+  - flatmap_over_map_reduce
   - force_unwrapping
   - function_default_parameter_at_end
   - identical_operands
@@ -140,6 +142,8 @@ contains_over_filter_is_empty:
   severity: error
 contains_over_first_not_nil:
   severity: error
+contains_over_range_nil_comparison:
+  severity: error
 control_statement:
   severity: error
 convenience_type:
@@ -181,6 +185,8 @@ explicit_type_interface:
 fallthrough:
   severity: error
 first_where:
+  severity: error
+flatmap_over_map_reduce:
   severity: error
 for_where:
   severity: error
