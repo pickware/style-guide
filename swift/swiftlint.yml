@@ -118,6 +118,20 @@ custom_rules:
     regex: "^[ ]*\\/\\/ MARK:[ ]*[^ -][^\\n]*$"
     match_kinds:
       - comment
+  mark_leading_newline:
+    severity: error
+    name: 'Mark comment leading newline'
+    message: 'MARK comments must be preceded by a single empty line, if they are not the first member of a type.'
+    regex: "(?<=[^\\{\\s]\\n)[ ]*\\/\\/ MARK:[^\\n]*\\n"
+    match_kinds:
+      - comment
+  mark_trailing_newline:
+    severity: error
+    name: 'Mark comment trailing newline'
+    message: 'MARK comments must be followed by a single empty line.'
+    regex: "^[ ]*\\/\\/ MARK:[^\\n]*\\n(?=[^\\n])"
+    match_kinds:
+      - comment
 
 # Rule configuration
 anyobject_protocol:
