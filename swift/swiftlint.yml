@@ -111,6 +111,13 @@ custom_rules:
     name: 'Empty scope closing brace'
     message: 'The closing brace of an empty scope must be positioned on the same line as the opening brace, without any space between them.'
     regex: "\\{\\s+\\}"
+  mark_separator:
+    severity: error
+    name: 'Mark comment separator'
+    message: 'MARK comments must add a separator line using a dash, e.g. `// MARK: - ...`.'
+    regex: "^[ ]*\\/\\/ MARK:[ ]*[^ -][^\\n]*$"
+    match_kinds:
+      - comment
 
 # Rule configuration
 anyobject_protocol:
