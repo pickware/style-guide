@@ -32,7 +32,7 @@ if [ ! -f "${repo_dir}/phpcs.xml" ]; then
 fi
 echo -e "\nComposer package 'viison/style-guide' is installed, will run PHP Code Sniffer on staged PHP files..."
 
-did_composer_validate=0
+last_composer_validate_dir=
 for i in "${changedFiles[@]}"; do
     if [[ $i == *.php ]] && [ -f $i ]; then
         "${repo_dir}/vendor/bin/phpcs" --warning-severity=0 $i
@@ -43,7 +43,9 @@ for i in "${changedFiles[@]}"; do
         fi
     fi
     # If a composer-related file changed, run `composer validate`.
-    if ( [[ "$i" == composer.json ]] || [[ "$i" == composer.lock ]] ) && [[ "$did_composer_validate" == 0 ]]; then
+
+    if ( [[ "$i" == *composer.json ]] || [[ "$i" == *composer.lock ]] ) && [[ "${last_composer_validate_dir}" != "$(dirname "$i")" ]]; then
+        echo "Validating $i:"
         if ! type composer &> /dev/null
         then
             printf 'ERROR: Cannot validate changes to %q.\n' "$i" >&2
@@ -59,14 +61,16 @@ for i in "${changedFiles[@]}"; do
         if [[ "$composer_validate_exit" != 0 ]]; then
             printf 'composer validate: %s\n' "$composer_validate_output" >&2
             ((codeStyleErrors++))
+        else
+            echo "$i is valid"
         fi
         composer_validate_output=
-        did_composer_validate=1
+        last_composer_validate_dir="$(dirname "$i")"
     fi
 
     # Check for normalized composer.json
     if [[ $i == *composer.json ]]; then
-        echo "Checking if $i is normalized."
+        echo "Checking if $i is normalized:"
         composer normalize "$i" --dry-run --indent-size 4 --indent-style space || exit 1
     fi
 done
