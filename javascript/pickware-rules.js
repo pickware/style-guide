@@ -13,7 +13,6 @@ module.exports = {
         }],
         'curly': ['error', 'all'],
         'func-names': 'off',
-        'function-paren-newline': ['error', 'multiline'],
         'indent': ['error', 4, { 'SwitchCase': 1 }],
         'max-len': ['error', 120],
         'multiline-ternary': ['error', 'never'],
