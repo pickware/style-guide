@@ -49,11 +49,3 @@ if [ -f "${repo_dir}/package.json" ]; then
         echo -e "${text_green}JavaScript code style check passed.${text_reset}\n"
     fi
 fi
-
-for composerJsonFile in $(find ${repo_dir} -name "composer.json"); do
-    if [[ $composerJsonFile == *vendor* || $composerJsonFile == *node_modules* ]]; then
-        continue
-    fi
-    echo "Checking if $composerJsonFile is normalized."
-    composer normalize "$composerJsonFile" --dry-run --indent-size 4 --indent-style space || exit 1
-done
