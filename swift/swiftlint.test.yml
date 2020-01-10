@@ -1,10 +1,10 @@
 disabled_rules:
+  - discouraged_optional_collection
   - explicit_acl
   - force_cast
   - force_try
   - force_unwrapping
   - implicitly_unwrapped_optional
-  - discouraged_optional_collection
 
 opt_in_rules:
   - nimble_operator
