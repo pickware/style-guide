@@ -140,6 +140,7 @@ array_init:
   severity: error
 attributes:
   severity: error
+  always_on_same_line: []
 block_based_kvo:
   severity: error
 class_delegate_protocol:
