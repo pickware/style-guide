@@ -303,6 +303,8 @@ operator_whitespace:
   severity: error
 optional_enum_case_matching:
   severity: error
+orphaned_doc_comment:
+  severity: error
 overridden_super_call:
   severity: error
 override_in_extension:
