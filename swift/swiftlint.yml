@@ -85,8 +85,6 @@ opt_in_rules:
   - unneeded_break_in_switch
   - unneeded_parentheses_in_closure_argument
   - untyped_error_in_catch
-  - unused_declaration
-  - unused_import
   - vertical_parameter_alignment_on_call
   - vertical_whitespace_closing_braces
   - vertical_whitespace_opening_braces
@@ -386,11 +384,7 @@ unused_closure_parameter:
   severity: error
 unused_control_flow_label:
   severity: error
-unused_declaration:
-  severity: error
 unused_enumerated:
-  severity: error
-unused_import:
   severity: error
 unused_optional_binding:
   severity: error
