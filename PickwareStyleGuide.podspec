@@ -3,13 +3,13 @@ Pod::Spec.new do |s|
     s.name = 'PickwareStyleGuide'
     s.version= '0.0.1'
     s.summary= 'Swift coding conventions used at Pickware'
-    s.homepage = 'https://github.com/VIISON/style-guide/'
+    s.homepage = 'https://github.com/pickware/style-guide/'
     s.authors = {
         'Jannik Jochem' => 'jannik.jochem@pickware.com',
         'Sven Münnich' => 'sven.muennich@pickware.com'
     }
     s.license = 'Copyright (c) Pickware GmbH. All rights reserved.'
-    s.source = { :git => 'https://github.com/VIISON/style-guide.git', :branch => 'master' }
+    s.source = { :git => 'https://github.com/pickware/style-guide.git', :branch => 'master' }
 
     # Build settings
     s.swift_version = '5.0'
