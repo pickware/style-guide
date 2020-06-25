@@ -21,7 +21,7 @@ fi
 prettier_config="$(dirname "$(realpath "$0")")"/.prettierrc.json
 
 # Run prettier and append all other arguments ("$@") given on the command line:
-exec prettier \
+npx prettier \
     --config-precedence prefer-file \
     --config "$prettier_config" \
     '**/*.json' '**/*.yml' '**/*.yaml' '**/*.babelrc' \
