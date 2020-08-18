@@ -1,19 +1,40 @@
 <profile version="1.0">
-  <option name="myName" value="VIISON Shopware Plugin inspections" />
-  <inspection_tool class="JSLastCommaInArrayLiteral" enabled="false" level="WARNING" enabled_by_default="false" />
-  <inspection_tool class="JSLastCommaInObjectLiteral" enabled="false" level="WARNING" enabled_by_default="false" />
-  <inspection_tool class="PhpCSValidationInspection" enabled="true" level="ERROR" enabled_by_default="true">
-    <option name="IGNORE_WARNINGS" value="true" />
-    <option name="CODING_STANDARD" value="Custom" />
-    <option name="CUSTOM_RULESET_PATH" value="$PROJECT_DIR$/style-guide/php/php-codesniffer-standard/VIISON" />
-  </inspection_tool>
-  <inspection_tool class="PhpInconsistentReturnPointsInspection" enabled="false" level="WARNING" enabled_by_default="false" />
-  <inspection_tool class="PhpMissingBreakStatementInspection" enabled="false" level="WARNING" enabled_by_default="false" />
-  <inspection_tool class="SSBasedInspection" enabled="true" level="ERROR" enabled_by_default="true">
-    <searchConfiguration name="JSDoc smarty problem" text="@param {$type$}" recursive="true" caseInsensitive="true" type="JavaScript">
-      <constraint name="__context__" within="" contains="" />
-      <constraint name="type" regexp="[^ ]*" target="true" within="" contains="" />
-    </searchConfiguration>
-  </inspection_tool>
-  <inspection_tool class="ShopwareBoostrapCheckLicense" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <option name="myName" value="VIISON Shopware Plugin inspections" />
+    <inspection_tool class="JSLastCommaInArrayLiteral" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="JSLastCommaInObjectLiteral" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PhpCSValidationInspection" enabled="true" level="ERROR" enabled_by_default="true">
+        <option name="IGNORE_WARNINGS" value="true" />
+        <option name="CODING_STANDARD" value="Custom" />
+        <option name="CUSTOM_RULESET_PATH" value="$PROJECT_DIR$/style-guide/php/php-codesniffer-standard/VIISON" />
+    </inspection_tool>
+    <inspection_tool
+        class="PhpInconsistentReturnPointsInspection"
+        enabled="false"
+        level="WARNING"
+        enabled_by_default="false"
+    />
+    <inspection_tool
+        class="PhpMissingBreakStatementInspection"
+        enabled="false"
+        level="WARNING"
+        enabled_by_default="false"
+    />
+    <inspection_tool class="SSBasedInspection" enabled="true" level="ERROR" enabled_by_default="true">
+        <searchConfiguration
+            name="JSDoc smarty problem"
+            text="@param {$type$}"
+            recursive="true"
+            caseInsensitive="true"
+            type="JavaScript"
+        >
+            <constraint name="__context__" within="" contains="" />
+            <constraint name="type" regexp="[^ ]*" target="true" within="" contains="" />
+        </searchConfiguration>
+    </inspection_tool>
+    <inspection_tool
+        class="ShopwareBoostrapCheckLicense"
+        enabled="false"
+        level="WEAK WARNING"
+        enabled_by_default="false"
+    />
 </profile>
