@@ -5,6 +5,8 @@
     "singleQuote": true,
     "tabWidth": 4,
     "trailingComma": "all",
+    "xmlSelfClosingSpace": true,
+    "xmlWhitespaceSensitivity": "ignore",
     "overrides": [
         {
             "files": ["*.yml", "**.yaml", "**/*.yml", "**/*.yaml"],
