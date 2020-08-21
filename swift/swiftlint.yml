@@ -69,6 +69,7 @@ opt_in_rules:
   - overridden_super_call
   - override_in_extension
   - prefer_self_type_over_type_of_self
+  - prefer_zero_over_explicit_init
   - prefixed_toplevel_constant
   - private_action
   - prohibited_super_call
@@ -186,6 +187,8 @@ colon:
 comma:
   severity: error
 compiler_protocol_init:
+  severity: error
+computed_accessors_order:
   severity: error
 conditional_returns_on_newline:
   severity: error
@@ -335,6 +338,8 @@ override_in_extension:
   severity: error
 prefer_self_type_over_type_of_self:
   severity: error
+prefer_zero_over_explicit_init:
+  severity: error
 prefixed_toplevel_constant:
   severity: error
 private_action:
@@ -403,6 +408,8 @@ type_name:
 unavailable_function:
   severity: error
 unneeded_break_in_switch:
+  severity: error
+unneeded_notification_center_removal:
   severity: error
 unneeded_parentheses_in_closure_argument:
   severity: error
