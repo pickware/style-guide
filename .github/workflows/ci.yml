@@ -2,9 +2,9 @@ name: CI
 on: [push]
 env:
   BUNDLE_PATH: ~/bundler
+  FASTLANE_HIDE_TIMESTAMP: true
   FASTLANE_SKIP_DOCS: true
   FASTLANE_SKIP_UPDATE_CHECK: true
-  XCODE_VERSION: '11.1'
 jobs:
   lint_php:
     if: "!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]')"
@@ -44,10 +44,9 @@ jobs:
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Select Xcode version
-        run: |
-          xcversion select "$XCODE_VERSION"
-          xcodebuild -version
+      - uses: maxim-lobanov/setup-xcode@v1.1
+        with:
+          xcode-version: '12.0'
       - name: Install bundler dependencies
         run: cd "./swift/TestRunner" && bundle install --jobs=4 --retry=3
       - name: Set up working directory
