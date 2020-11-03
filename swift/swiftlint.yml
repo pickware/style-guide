@@ -72,6 +72,7 @@ opt_in_rules:
   - prefer_zero_over_explicit_init
   - prefixed_toplevel_constant
   - private_action
+  - private_outlet
   - prohibited_super_call
   - redundant_nil_coalescing
   - single_test_class
@@ -344,6 +345,9 @@ prefixed_toplevel_constant:
   severity: error
 private_action:
   severity: error
+private_outlet:
+  severity: error
+  allow_private_set: true
 private_unit_test:
   severity: error
 prohibited_super_call:
