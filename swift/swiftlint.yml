@@ -68,6 +68,7 @@ opt_in_rules:
   - optional_enum_case_matching
   - overridden_super_call
   - override_in_extension
+  - prefer_nimble
   - prefer_self_type_over_type_of_self
   - prefer_zero_over_explicit_init
   - prefixed_toplevel_constant
@@ -339,6 +340,8 @@ orphaned_doc_comment:
 overridden_super_call:
   severity: error
 override_in_extension:
+  severity: error
+prefer_nimble:
   severity: error
 prefer_self_type_over_type_of_self:
   severity: error
