@@ -118,28 +118,10 @@ custom_rules:
     severity: error
     name: 'Indentation'
     message: 'Each line must be indented by a multiple of 4 spaces.'
-    regex: '^( {4})*( {1,3})[^ ]+'
+    regex: '^( {4})*( {1,3})[^ ]'
     capture_group: 2
-    match_kinds:
-      - argument
-      - attribute.builtin
-      - attribute.id
-      - buildconfig.id
-      - buildconfig.keyword
-      - comment
-      - comment.mark
-      - comment.url
-      - doccomment
-      - doccomment.field
-      - identifier
-      - keyword
-      - number
-      - objectliteral
-      - parameter
-      - placeholder
-      - pounddirective.keyword
-      - string_interpolation_anchor
-      - typeidentifier
+    excluded_match_kinds:
+      - string
   mark_separator:
     severity: error
     name: 'Mark comment separator'
