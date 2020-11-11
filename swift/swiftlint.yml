@@ -273,6 +273,8 @@ implicit_return:
   severity: error
 implicitly_unwrapped_optional:
   severity: error
+inclusive_language:
+  severity: error
 is_disjoint:
   severity: error
 last_where:
@@ -327,6 +329,7 @@ opening_brace:
   severity: error
 operator_usage_whitespace:
   severity: error
+  skip_aligned_constants: false
 operator_whitespace:
   severity: error
 optional_enum_case_matching:
@@ -412,8 +415,6 @@ type_name:
 unavailable_function:
   severity: error
 unneeded_break_in_switch:
-  severity: error
-unneeded_notification_center_removal:
   severity: error
 unneeded_parentheses_in_closure_argument:
   severity: error
