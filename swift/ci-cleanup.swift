@@ -1,9 +1,12 @@
 #!/usr/bin/swift
 
 // Disable some swiftlint rules, which are too annoying when programming for the CLI
-// swiftlint:disable explicit_acl
+// swiftlint:disable explicit_acl prefixed_toplevel_constant
 
 import Foundation
+
+let swiftLintConfigUrl = URL(fileURLWithPath: ".swiftlint.yml")
+let swiftLintConfigBackupUrl = URL(fileURLWithPath: ".swiftlint.yml.bak")
 
 func removeIfExists(atPath path: String) throws {
     if FileManager.default.fileExists(atPath: path) {
@@ -13,5 +16,6 @@ func removeIfExists(atPath path: String) throws {
 }
 
 try removeIfExists(atPath: "./.bundle")
-try removeIfExists(atPath: "./.swiftlint-ci.yml")
+try removeIfExists(atPath: swiftLintConfigUrl.relativePath)
 try removeIfExists(atPath: "./Frameworks/.swiftlint.yml")
+try FileManager.default.moveItem(at: swiftLintConfigBackupUrl, to: swiftLintConfigUrl)

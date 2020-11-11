@@ -5,17 +5,26 @@
 
 import Foundation
 
-// Promote SwiftLint's `todo` rule to `error` severity in a new config `.swiftlint-ci.yml`
 let swiftLintConfigUrl = URL(fileURLWithPath: ".swiftlint.yml")
+let swiftLintConfigBackupUrl = URL(fileURLWithPath: ".swiftlint.yml.bak")
+
+// Read the contents of the SwiftLint configuration
 guard var swiftLintConfigContents = try String(bytes: Data(contentsOf: swiftLintConfigUrl), encoding: .utf8) else {
     fatalError("Failed to read file at path '\(swiftLintConfigUrl.relativeString)'.")
 }
+
+// Rename the config file to back it up
+try FileManager.default.moveItem(at: swiftLintConfigUrl, to: swiftLintConfigBackupUrl)
+
+// Promote SwiftLint's `todo` rule to `error` severity
 swiftLintConfigContents += """
 todo:
   severity: error
 
 """
-try swiftLintConfigContents.write(to: URL(fileURLWithPath: ".swiftlint-ci.yml"), atomically: false, encoding: .utf8)
+
+// Save the updated SwiftLint config to the original location
+try swiftLintConfigContents.write(to: swiftLintConfigUrl, atomically: false, encoding: .utf8)
 
 // Ignore all frameworks when linting
 let frameworksDirectoryPath = "./Frameworks"
