@@ -53,4 +53,4 @@ jobs:
       - name: Set up working directory
         run: cd "./swift/TestRunner" && bundle exec pod install
       - name: Lint Swift code using SwiftLint
-        run: ./swift/TestRunner/Pods/SwiftLint/swiftlint lint --config swiftlint.yml "./swift"
+        run: cd "./swift" && ./TestRunner/Pods/SwiftLint/swiftlint lint --config swiftlint.yml .
