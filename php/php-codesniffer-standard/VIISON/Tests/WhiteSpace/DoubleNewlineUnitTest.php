@@ -3,15 +3,15 @@ namespace VIISON\StyleGuide\PHPCS\Standards\VIISON\Tests\WhiteSpace;
 
 use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
-class DoubleNewLineUnitTest extends AbstractSniffUnitTest
+class DoubleNewlineUnitTest extends AbstractSniffUnitTest
 {
     /**
      * @inheritdoc
      */
-    public function getErrorList($testFile = 'DoubleNewLineUnitTest.inc')
+    public function getErrorList($testFile = 'DoubleNewlineUnitTest.inc')
     {
         switch ($testFile) {
-            case 'DoubleNewLineUnitTest.inc':
+            case 'DoubleNewlineUnitTest.inc':
                 return [
                     4 => 1,
                     9 => 1,
