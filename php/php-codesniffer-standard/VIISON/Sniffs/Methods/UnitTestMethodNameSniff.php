@@ -76,7 +76,8 @@ class UnitTestMethodNameSniff implements Sniff
             }
 
             if ($token['type'] === 'T_STRING') {
-                // The index was already increased by 1.
+                // The index was already increased by 1 and is currently pointing to the next token. Decrease the
+                // index so that it points to the current token.
                 $index -= 1;
 
                 return $token['content'];
