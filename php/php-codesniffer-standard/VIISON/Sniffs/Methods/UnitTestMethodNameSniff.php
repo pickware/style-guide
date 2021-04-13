@@ -5,11 +5,11 @@ use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
- * Finds methods whos method name does not match their testdox description.
+ * Finds test methods which have methods names that do not match their \@testdox description.
  */
 class UnitTestMethodNameSniff implements Sniff
 {
-    const METHOD_NAME_DOES_NOT_EQUAL_TESTDOX = 'Unit test method "%s" does not equal testdox. Expected "%s"';
+    const METHOD_NAME_DOES_NOT_EQUAL_TESTDOX = 'Unit test method "%s" does not equal @testdox. Expected "%s"';
 
     /**
      * @inheritdoc
@@ -55,60 +55,6 @@ class UnitTestMethodNameSniff implements Sniff
         }
     }
 
-    private function getMethodName($tokens, &$index)
-    {
-        $expectedTokens = [
-            'T_PUBLIC',
-            'T_FUNCTION',
-        ];
-
-        while (count($tokens) > $index) {
-            $token = $tokens[$index];
-            $index += 1;
-
-            if ($token['type'] === 'T_WHITESPACE') {
-                continue;
-            }
-
-            if (count($expectedTokens) > 0 && $token['type'] === $expectedTokens[0]) {
-                array_shift($expectedTokens);
-                continue;
-            }
-
-            if ($token['type'] === 'T_STRING') {
-                // The index was already increased by 1 and is currently pointing to the next token. Decrease the
-                // index so that it points to the current token.
-                $index -= 1;
-
-                return $token['content'];
-            } else {
-                return null;
-            }
-        }
-    }
-
-    private function getExpectedMethodNameFromTestdox($testdox)
-    {
-        $words = preg_split('/[^a-zA-Z0-9]/', $testdox);
-        $methodName = 'test_';
-        foreach ($words as $index => $word) {
-            if (mb_strlen($word) === 0) {
-                continue;
-            }
-
-            $firstLetter = mb_substr($word, 0, 1);
-            $followingLetters = mb_substr($word, 1);
-
-            if ($index === 0) {
-                $methodName .= mb_strtolower($firstLetter) . $followingLetters;
-            } else {
-                $methodName .= mb_strtoupper($firstLetter) . $followingLetters;
-            }
-        }
-
-        return $methodName;
-    }
-
     private function getTestdox($tokens, &$index)
     {
         $docComment = $this->getDocComment($tokens, $index);
@@ -143,7 +89,7 @@ class UnitTestMethodNameSniff implements Sniff
         ];
         $docComment = '';
 
-        while (count($tokens) > $index) {
+        while ($index < count($tokens)) {
             $token = $tokens[$index];
             $index += 1;
 
@@ -157,5 +103,59 @@ class UnitTestMethodNameSniff implements Sniff
                 return null;
             }
         }
+    }
+
+    private function getMethodName($tokens, &$index)
+    {
+        $expectedTokens = [
+            'T_PUBLIC',
+            'T_FUNCTION',
+        ];
+
+        while ($index < count($tokens)) {
+            $token = $tokens[$index];
+            $index += 1;
+
+            if ($token['type'] === 'T_WHITESPACE') {
+                continue;
+            }
+
+            if (count($expectedTokens) > 0 && $token['type'] === $expectedTokens[0]) {
+                array_shift($expectedTokens);
+                continue;
+            }
+
+            if ($token['type'] === 'T_STRING') {
+                // The index was already increased by 1 and is currently pointing to the next token. Decrease the
+                // index so that it points to the current token.
+                $index -= 1;
+
+                return $token['content'];
+            } else {
+                return null;
+            }
+        }
+    }
+
+    private function getExpectedMethodNameFromTestdox($testdox)
+    {
+        $words = preg_split('/[^a-zA-Z0-9]/', $testdox);
+        $methodName = 'test_';
+        foreach ($words as $index => $word) {
+            if (mb_strlen($word) === 0) {
+                continue;
+            }
+
+            $firstLetter = mb_substr($word, 0, 1);
+            $followingLetters = mb_substr(mb_strtolower($word), 1);
+
+            if ($index === 0) {
+                $methodName .= mb_strtolower($firstLetter) . $followingLetters;
+            } else {
+                $methodName .= mb_strtoupper($firstLetter) . $followingLetters;
+            }
+        }
+
+        return $methodName;
     }
 }

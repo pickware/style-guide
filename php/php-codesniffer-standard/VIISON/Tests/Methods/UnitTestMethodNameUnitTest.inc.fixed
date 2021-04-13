@@ -25,4 +25,20 @@ class UnitTestClass
     {
         // Implementation
     }
+
+    /**
+     * @testdox some DAL acronym
+     */
+    public function test_someDalAcronym(): void
+    {
+        // Implementation
+    }
+
+    /**
+     * @testdox some DAL acronym
+     */
+    public function test_someDalAcronym(): void
+    {
+        // Implementation
+    }
 }
