@@ -18,12 +18,12 @@
         "lint-structured-files:fix": "./structured-files/lint-structured-files.sh  --ignore-path .gitignore --write"
     },
     "dependencies": {
-        "@prettier/plugin-xml": "^0.10.0",
+        "@prettier/plugin-xml": "^0.13.1",
         "eslint": "^5.16.0",
         "eslint-config-airbnb-base": "^13.1.0",
         "eslint-plugin-import": "^2.16.0",
         "eslint-plugin-promise": "^4.1.1",
-        "prettier": "^1.18.2",
+        "prettier": "^2.2.1",
         "realpath": "^1.1.0"
     },
     "bin": {
