@@ -1,0 +1,44 @@
+<?php
+
+class UnitTestClass
+{
+    /**
+     * @testdox some description
+     */
+    public function test_someDescription(): void
+    {
+        // Implementation
+    }
+
+    /**
+     * @testdox Some other description
+     */
+    public function test_someOtherDescription(): void
+    {
+        // Implementation
+    }
+
+    /**
+     * @testdox other-description
+     */
+    public function test_otherDescription(): void
+    {
+        // Implementation
+    }
+
+    /**
+     * @testdox some DAL acronym
+     */
+    public function test_someDalAcronym(): void
+    {
+        // Implementation
+    }
+
+    /**
+     * @testdox some DAL acronym
+     */
+    public function test_someDalAcronym(): void
+    {
+        // Implementation
+    }
+}
