@@ -5,7 +5,7 @@ use PHP_CodeSniffer\Tests\Standards\AllSniffs;
 use PHP_CodeSniffer\Util\Standards;
 use PHP_CodeSniffer\Autoload;
 use PHPUnit\TextUI\TestRunner;
-use PHPUnit\Framework\TestSuite;
+use PHPUnit\Framework\TestSuite as PhpUnitTestSuite;
 use PHP_CodeSniffer\Tests\FileList;
 
 /**
@@ -13,7 +13,7 @@ use PHP_CodeSniffer\Tests\FileList;
  * test classes yourself so that they can be tested. This is the easiest implementation I could come up with to allow
  * our custom sniffs to be tested.
  */
-class TestSuit extends AllSniffs
+class TestSuite extends AllSniffs
 {
     /**
      * @inheritdoc
@@ -28,7 +28,7 @@ class TestSuit extends AllSniffs
         $GLOBALS['PHP_CODESNIFFER_FIXABLE_CODES'] = [];
         $GLOBALS['PHP_CODESNIFFER_SNIFF_CASE_FILES'] = [];
 
-        $suite = new TestSuite('PHP CodeSniffer Standards');
+        $suite = new PhpUnitTestSuite('PHP CodeSniffer Standards');
         $fileList = new FileList(__DIR__ . '/Tests');
 
         // Loop over all files and extract the test classes.
