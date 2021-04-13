@@ -67,3 +67,7 @@ Name                            | Description
 To lint PHP Code using _PHP CodeSniffer_, you have to install the package `php-code-sniffer` (**at least `v3.2.0`**). On macOS you can install it using homebrew `brew install php-cs-fixer`.
 
 The ruleset required to lint Shopware plugins is located in `php/php-codesniffer-standard/VIISON` and is mostly based on the `PSR-1` and `PSR-2` coding standards. You must configure your php-cs plugin in your IDE to use that standard by setting the `standard` option to that path.
+
+### Testing custom sniffs
+
+To add a test for a custom sniff, add a test file into the correctly namespaced folder in `php/php-codesniffer-standard/VIISON/Tests`. The test files and the test classes need to be named exactly like the test class but with the `Sniff` postfix replaced by a `UnitTest` postfix. Please note that tests don't fail, if they are named incorrectly but they are false negatives.

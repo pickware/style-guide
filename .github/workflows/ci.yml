@@ -22,6 +22,20 @@ jobs:
         run: composer install
       - name: Lint PHP code using PHP_CodeSniffer
         run: composer phpcs
+  test_custom_php_sniffs:
+    if: "!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up PHP and composer
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.2'
+          tools: composer:v1
+      - name: Instal composer dependencies
+        run: composer install
+      - name: Run phpcs unit tests
+        run: vendor/bin/phpunit --no-configuration --bootstrap=vendor/squizlabs/php_codesniffer/tests/bootstrap.php --dont-report-useless-tests php/php-codesniffer-standard/VIISON/TestSuite.php
   lint_javascript:
     if: "!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]')"
     runs-on: ubuntu-18.04
