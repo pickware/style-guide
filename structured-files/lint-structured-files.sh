@@ -24,6 +24,6 @@ prettier_config="$(dirname "$(realpath "$0")")"/.prettierrc.json
 npx prettier \
     --config-precedence prefer-file \
     --config "$prettier_config" \
-    '**/*.json' '**/*.yml' '**/*.yaml' '**/*.babelrc' '**/*.xml' \
+    '**/*.{json,yml,yaml,babelrc,xml}' \
     $maybe_check_arg \
     "$@"
