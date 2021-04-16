@@ -147,7 +147,13 @@ class UnitTestMethodNameSniff implements Sniff
             }
 
             $firstLetter = mb_substr($word, 0, 1);
-            $followingLetters = mb_substr(mb_strtolower($word), 1);
+
+            $isWordUppercasedAcronym = $word == mb_strtoupper($word);
+            if ($isWordUppercasedAcronym === true) {
+                $followingLetters = mb_substr(mb_strtolower($word), 1);
+            } else {
+                $followingLetters = mb_substr($word, 1);
+            }
 
             if ($index === 0) {
                 $methodName .= mb_strtolower($firstLetter) . $followingLetters;
