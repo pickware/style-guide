@@ -139,7 +139,8 @@ class UnitTestMethodNameSniff implements Sniff
 
     private function getExpectedMethodNameFromTestdox($testdox)
     {
-        $words = preg_split('/[^a-zA-Z0-9]/', $testdox);
+        $testdoxWithoutApostropheS = preg_replace('/\'s/', 's', $testdox);
+        $words = preg_split('/[^a-zA-Z0-9]/', $testdoxWithoutApostropheS);
         $methodName = 'test_';
         foreach ($words as $index => $word) {
             if (mb_strlen($word) === 0) {

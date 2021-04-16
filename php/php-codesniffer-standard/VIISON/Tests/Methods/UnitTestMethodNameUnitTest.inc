@@ -41,4 +41,12 @@ class UnitTestClass
     {
         // Implementation
     }
+
+    /**
+     * @testdox test exception's properties
+     */
+    public function test_notTestExceptionsProperties(): void
+    {
+        // Implementation
+    }
 }
