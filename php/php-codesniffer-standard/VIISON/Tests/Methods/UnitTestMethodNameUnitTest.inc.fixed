@@ -35,9 +35,17 @@ class UnitTestClass
     }
 
     /**
-     * @testdox some DAL acronym
+     * @testdox some PascalCasing to be preserved
      */
-    public function test_someDalAcronym(): void
+    public function test_somePascalCasingToBePreserved(): void
+    {
+        // Implementation
+    }
+
+    /**
+     * @testdox test exception's properties
+     */
+    public function test_testExceptionsProperties(): void
     {
         // Implementation
     }

@@ -139,7 +139,8 @@ class UnitTestMethodNameSniff implements Sniff
 
     private function getExpectedMethodNameFromTestdox($testdox)
     {
-        $words = preg_split('/[^a-zA-Z0-9]/', $testdox);
+        $testdoxWithoutApostropheS = preg_replace('/\'s/', 's', $testdox);
+        $words = preg_split('/[^a-zA-Z0-9]/', $testdoxWithoutApostropheS);
         $methodName = 'test_';
         foreach ($words as $index => $word) {
             if (mb_strlen($word) === 0) {
@@ -147,7 +148,13 @@ class UnitTestMethodNameSniff implements Sniff
             }
 
             $firstLetter = mb_substr($word, 0, 1);
-            $followingLetters = mb_substr(mb_strtolower($word), 1);
+
+            $isWordUppercasedAcronym = $word == mb_strtoupper($word);
+            if ($isWordUppercasedAcronym === true) {
+                $followingLetters = mb_substr(mb_strtolower($word), 1);
+            } else {
+                $followingLetters = mb_substr($word, 1);
+            }
 
             if ($index === 0) {
                 $methodName .= mb_strtolower($firstLetter) . $followingLetters;

@@ -17,6 +17,8 @@ class UnitTestMethodNameUnitTest extends AbstractSniffUnitTest
                     16 => 1,
                     24 => 1,
                     32 => 1,
+                    40 => 1,
+                    48 => 1,
                 ];
             default:
                 return [];
