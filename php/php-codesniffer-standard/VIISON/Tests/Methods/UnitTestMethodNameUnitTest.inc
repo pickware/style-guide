@@ -57,4 +57,12 @@ class UnitTestClass
     {
         // Implementation
     }
+
+    /**
+     * @testdox ::comment is prefixed with special character
+     */
+    public function test_notCommentIsPrefixedWithSpecialCharacter(): void
+    {
+        // Implementation
+    }
 }

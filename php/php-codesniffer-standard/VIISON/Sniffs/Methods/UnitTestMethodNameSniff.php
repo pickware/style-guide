@@ -141,7 +141,7 @@ class UnitTestMethodNameSniff implements Sniff
     {
         $testdoxWithoutApostropheS = preg_replace('/\'([st])/', '$1', $testdox);
         $words = preg_split('/[^a-zA-Z0-9]/', $testdoxWithoutApostropheS);
-        $methodName = 'test_';
+        $methodName = '';
         foreach ($words as $index => $word) {
             if (mb_strlen($word) === 0) {
                 continue;
@@ -156,13 +156,13 @@ class UnitTestMethodNameSniff implements Sniff
                 $followingLetters = mb_substr($word, 1);
             }
 
-            if ($index === 0) {
+            if ($methodName === '') {
                 $methodName .= mb_strtolower($firstLetter) . $followingLetters;
             } else {
                 $methodName .= mb_strtoupper($firstLetter) . $followingLetters;
             }
         }
 
-        return $methodName;
+        return 'test_' . $methodName;
     }
 }
