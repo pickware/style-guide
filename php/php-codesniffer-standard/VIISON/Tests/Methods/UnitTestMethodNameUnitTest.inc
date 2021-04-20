@@ -49,4 +49,20 @@ class UnitTestClass
     {
         // Implementation
     }
+
+    /**
+     * @testdox don't do it
+     */
+    public function test_notDontDoIt(): void
+    {
+        // Implementation
+    }
+
+    /**
+     * @testdox ::comment is prefixed with special character
+     */
+    public function test_notCommentIsPrefixedWithSpecialCharacter(): void
+    {
+        // Implementation
+    }
 }
