@@ -49,4 +49,12 @@ class UnitTestClass
     {
         // Implementation
     }
+
+    /**
+     * @testdox don't do it
+     */
+    public function test_notDontDoIt(): void
+    {
+        // Implementation
+    }
 }
