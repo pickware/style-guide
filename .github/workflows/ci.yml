@@ -1,10 +1,5 @@
 name: CI
 on: [push]
-env:
-  BUNDLE_PATH: ~/bundler
-  FASTLANE_HIDE_TIMESTAMP: true
-  FASTLANE_SKIP_DOCS: true
-  FASTLANE_SKIP_UPDATE_CHECK: true
 jobs:
   lint_php:
     if: "!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]')"
@@ -54,17 +49,3 @@ jobs:
         run: npm install
       - name: Lint structured files using Prettier
         run: npm run lint-structured-files
-  lint_swift:
-    if: "!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]')"
-    runs-on: macOS-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: maxim-lobanov/setup-xcode@v1.1
-        with:
-          xcode-version: '12.1'
-      - name: Install bundler dependencies
-        run: cd "./swift/TestRunner" && bundle install --jobs=4 --retry=3
-      - name: Set up working directory
-        run: cd "./swift/TestRunner" && bundle exec pod install
-      - name: Lint Swift code using SwiftLint
-        run: cd "./swift" && ./TestRunner/Pods/SwiftLint/swiftlint lint --config swiftlint.yml .
