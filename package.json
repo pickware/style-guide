@@ -14,8 +14,8 @@
     "scripts": {
         "eslint": "eslint .",
         "eslint:fix": "eslint --fix .",
-        "lint-structured-files": "./structured-files/lint-structured-files.sh --ignore-path .gitignore --check",
-        "lint-structured-files:fix": "./structured-files/lint-structured-files.sh  --ignore-path .gitignore --write"
+        "lint-structured-files": "bash ./structured-files/lint-structured-files.sh --ignore-path .gitignore --check",
+        "lint-structured-files:fix": "bash ./structured-files/lint-structured-files.sh  --ignore-path .gitignore --write"
     },
     "dependencies": {
         "@prettier/plugin-xml": "^0.13.1",
