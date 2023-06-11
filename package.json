@@ -26,6 +26,9 @@
         "prettier": "^2.2.1",
         "realpath": "^1.1.0"
     },
+    "bin": {
+        "lint-structured-files": "bash ./structured-files/lint-structured-files.sh"
+    },
     "prettier": "./structured-files/.prettierrc.json",
     "private": true,
     "homepage": "https://github.com/VIISON/style-guide#readme",
