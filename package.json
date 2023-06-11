@@ -31,5 +31,6 @@
     },
     "prettier": "./structured-files/.prettierrc.json",
     "private": true,
-    "homepage": "https://github.com/VIISON/style-guide#readme"
+    "homepage": "https://github.com/VIISON/style-guide#readme",
+    "packageManager": "yarn@3.6.0"
 }
