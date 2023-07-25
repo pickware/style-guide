@@ -3,7 +3,7 @@ on: [push]
 jobs:
   lint_php:
     if: "!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]')"
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Set up PHP and composer
@@ -19,7 +19,7 @@ jobs:
         run: composer phpcs
   test_custom_php_sniffs:
     if: "!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]')"
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Set up PHP and composer
@@ -33,7 +33,7 @@ jobs:
         run: vendor/bin/phpunit --no-configuration --bootstrap=vendor/squizlabs/php_codesniffer/tests/bootstrap.php --dont-report-useless-tests php/php-codesniffer-standard/VIISON/TestSuite.php
   lint_javascript:
     if: "!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]')"
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Install npm dependencies
@@ -42,7 +42,7 @@ jobs:
         run: npm run eslint
   lint_structured_files:
     if: "!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]')"
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Install npm dependencies
