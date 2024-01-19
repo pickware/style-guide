@@ -230,7 +230,7 @@ class ArrayDeclarationSniff implements Sniff
 
             // Decide whether this array is used for array destructing ( [$a, $b] = foo() )
             $nextTokenThatIsNotEqual = $phpcsFile->findNext([T_EQUAL, T_WHITESPACE], $arrayEnd + 1, null, true);
-            $isArrayDestructing = $phpcsFile->findNext(T_EQUAL,  $arrayEnd + 1, $nextTokenThatIsNotEqual) !== false;
+            $isArrayDestructing = $phpcsFile->findNext(T_EQUAL, $arrayEnd + 1, $nextTokenThatIsNotEqual) !== false;
 
             if (!$isArrayDestructing
                 && (
