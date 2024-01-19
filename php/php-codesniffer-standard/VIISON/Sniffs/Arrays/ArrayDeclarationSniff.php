@@ -359,7 +359,7 @@ class ArrayDeclarationSniff implements Sniff
             // Skip bracketed statements, like function calls.
             if ($tokens[$nextToken]['code'] === T_OPEN_PARENTHESIS
                 && (isset($tokens[$nextToken]['parenthesis_owner']) === false
-                    || $tokens[$nextToken]['parenthesis_owner'] !== $stackPtr)
+                || $tokens[$nextToken]['parenthesis_owner'] !== $stackPtr)
             ) {
                 $nextToken = $tokens[$nextToken]['parenthesis_closer'];
                 continue;
