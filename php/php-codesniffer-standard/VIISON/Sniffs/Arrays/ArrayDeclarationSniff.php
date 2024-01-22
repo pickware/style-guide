@@ -228,8 +228,15 @@ class ArrayDeclarationSniff implements Sniff
                 $nestedParenthesis = array_pop($nested);
             }
 
-            if ($nestedParenthesis === false
-                || $tokens[$nestedParenthesis]['line'] !== $tokens[$stackPtr]['line']
+            // Decide whether this array is used for array destructing ( [$a, $b] = foo() )
+            $nextTokenThatIsNotEqual = $phpcsFile->findNext([T_EQUAL, T_WHITESPACE], $arrayEnd + 1, null, true);
+            $isArrayDestructing = $phpcsFile->findNext(T_EQUAL, $arrayEnd + 1, $nextTokenThatIsNotEqual) !== false;
+
+            if (!$isArrayDestructing
+                && (
+                    $nestedParenthesis === false
+                    || $tokens[$nestedParenthesis]['line'] !== $tokens[$stackPtr]['line']
+                )
             ) {
                 $error = 'Array with multiple values cannot be declared on a single line';
                 $fix   = $phpcsFile->addFixableError($error, $stackPtr, 'SingleLineNotAllowed');
@@ -243,7 +250,7 @@ class ArrayDeclarationSniff implements Sniff
                 return;
             }
 
-            // We have a multiple value array that is inside a condition or
+            // We have a multiple value array that is an array destructing or inside a condition or
             // function. Check its spacing is correct.
             foreach ($commas as $comma) {
                 if ($tokens[($comma + 1)]['code'] !== T_WHITESPACE) {
