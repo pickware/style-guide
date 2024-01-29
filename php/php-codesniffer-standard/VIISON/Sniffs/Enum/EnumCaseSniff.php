@@ -21,8 +21,12 @@ class EnumCaseSniff implements Sniff
      */
     public function process(File $phpcsFile, $stackPtr)
     {
+        $enumNamePosition = $phpcsFile->findNext(T_STRING, $stackPtr);
+        if ($enumNamePosition === false) {
+            return;
+        }
         $tokens = $phpcsFile->getTokens();
-        $enumName = $tokens[$stackPtr]['content'];
+        $enumName = $tokens[$enumNamePosition]['content'];
 
         // Check whether the enum case is written in  UpperCamelCase
         if (!preg_match('/^[A-Z][a-zA-Z0-9]*$/', $enumName)) {
