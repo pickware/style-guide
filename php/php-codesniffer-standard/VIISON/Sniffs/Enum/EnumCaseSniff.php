@@ -29,7 +29,7 @@ class EnumCaseSniff implements Sniff
         $enumName = $tokens[$enumNamePosition]['content'];
 
         // Check whether the enum case is written in  UpperCamelCase
-        if (!preg_match('/^[A-Z][a-zA-Z0-9]*$/', $enumName)) {
+        if (!preg_match('/^((([A-Z][a-z0-9]+)((\d)|([A-Z0-9][a-z0-9]+))*([A-Z])?)|[A-Z])$/', $enumName)) {
             $error = 'Enum cases should be written in UpperCamelCase';
             $phpcsFile->addError($error, $stackPtr, 'NotUpperCamelCase');
         }
