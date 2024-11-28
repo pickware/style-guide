@@ -39,7 +39,7 @@ class DateMethodsInSqlSniff implements Sniff
         }
 
         if (mb_stripos($content, 'CURRENT_TIMESTAMP(') !== false) {
-            $error = 'The usage of the method CURRENT_TIMESTAMP() in SQL queries is not allowed. Use UTC_TIMESTAMP() instead.';
+            $error = 'The usage of the method CURRENT_TIMESTAMP() in SQL queries is not allowed. Use (UTC_TIMESTAMP()) (with brackets) instead.';
             $phpcsFile->addError($error, $stackPtr, 'NoCurrentTimestamp');
         }
 
