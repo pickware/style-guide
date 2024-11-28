@@ -6,6 +6,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 // phpcs:disable VIISON.Strings.DateMethodsInSql.NoNow
 // phpcs:disable VIISON.Strings.DateMethodsInSql.NoCurrentTimestamp
+// phpcs:disable VIISON.Strings.DateMethodsInSql.UtcTimestampOnlyWithArgument
 
 /**
  * This sniff disallows the usage of the method NOW() and CURRENT_TIMESTAMP() in SQL queries as they have weird
@@ -34,12 +35,12 @@ class DateMethodsInSqlSniff implements Sniff
         $content = $token['content'];
 
         if (mb_stripos($content, 'NOW(') !== false) {
-            $error = 'The usage of the method NOW() in SQL queries is not allowed. Use UTC_TIMESTAMP(3) instead.';
+            $error = 'The usage of the method NOW() in SQL queries is not allowed. Use UTC_TIMESTAMP() instead.';
             $phpcsFile->addError($error, $stackPtr, 'NoNow');
         }
 
         if (mb_stripos($content, 'CURRENT_TIMESTAMP(') !== false) {
-            $error = 'The usage of the method CURRENT_TIMESTAMP() in SQL queries is not allowed. Use (UTC_TIMESTAMP(3)) (with brackets) instead.';
+            $error = 'The usage of the method CURRENT_TIMESTAMP() in SQL queries is not allowed. Use (UTC_TIMESTAMP()) (with brackets) instead.';
             $phpcsFile->addError($error, $stackPtr, 'NoCurrentTimestamp');
         }
 
