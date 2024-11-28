@@ -34,12 +34,12 @@ class DateMethodsInSqlSniff implements Sniff
         $content = $token['content'];
 
         if (mb_stripos($content, 'NOW(') !== false) {
-            $error = 'The usage of the method NOW() in SQL queries is not allowed. Use UTC_TIMESTAMP() instead.';
+            $error = 'The usage of the method NOW() in SQL queries is not allowed. Use UTC_TIMESTAMP(3) instead.';
             $phpcsFile->addError($error, $stackPtr, 'NoNow');
         }
 
         if (mb_stripos($content, 'CURRENT_TIMESTAMP(') !== false) {
-            $error = 'The usage of the method CURRENT_TIMESTAMP() in SQL queries is not allowed. Use (UTC_TIMESTAMP()) (with brackets) instead.';
+            $error = 'The usage of the method CURRENT_TIMESTAMP() in SQL queries is not allowed. Use (UTC_TIMESTAMP(3)) (with brackets) instead.';
             $phpcsFile->addError($error, $stackPtr, 'NoCurrentTimestamp');
         }
 
